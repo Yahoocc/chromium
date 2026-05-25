@@ -1,0 +1,10 @@
+ninja: Entering directory `out/Default'
+[1/9] CXX obj/v8/v8_taint_tracking_stub/taint_tracking_stub.o
+[2/9] LINK ./mksnapshot
+[3/9] ACTION //v8:run_mksnapshot_default(//build/toolchain/linux:clang_x64)
+[4/9] CXX obj/v8/v8_snapshot/builtins-effects.o
+[5/9] ASM obj/v8/v8_snapshot/embedded.o
+[6/9] CXX obj/v8/v8_snapshot/setup-isolate-deserialize.o
+[7/9] CXX obj/v8/v8_snapshot/snapshot-external.o
+[8/9] SOLINK ./libv8.so
+[9/9] LINK ./d8

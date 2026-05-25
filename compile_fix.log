@@ -1,0 +1,105 @@
+ninja: Entering directory `out/Default'
+[1/9] CXX obj/v8/v8_taint_tracking_stub/taint_tracking_stub.o
+[2/9] LINK ./mksnapshot
+FAILED: [code=1] mksnapshot 
+"python3" "../../build/toolchain/gcc_link_wrapper.py" --output="./mksnapshot" -- ../../third_party/llvm-build/Release+Asserts/bin/clang++ -pie -Werror -fPIC --target=x86_64-unknown-linux-gnu -no-canonical-prefixes -Wl,--gdb-index -Wl,-z,defs -Wl,--as-needed -nostdlib++ --sysroot=../../build/linux/debian_bullseye_amd64-sysroot -fuse-ld=lld -Wl,--fatal-warnings -Wl,--build-id=fast -Wl,-z,noexecstack -Wl,-z,relro -Wl,--color-diagnostics -Wl,--undefined-version -Wl,--no-call-graph-profile-sort -rdynamic -pie -Wl,--disable-new-dtags -Wl,-rpath=\$ORIGIN -Wl,--gc-sections -Wl,--icf=none -o "./mksnapshot" -Wl,--start-group @"./mksnapshot.rsp" -Wl,--end-group  ./libv8_libbase.so ./libv8_libplatform.so ./libthird_party_abseil-cpp_absl.so ./libthird_party_perfetto_libperfetto.so ./libthird_party_icu_icui18n.so ./libicuuc.so ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_base.so ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_core.so ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_shim.so ./libchrome_zlib.so ./libc++.so ./libatomic.so ../../third_party/llvm-build/Release+Asserts/lib/clang/23/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a -ldl -lpthread -lrt -Wl,--start-group obj/third_party/rust/temporal_capi/v0_2/lib/libtemporal_capi_lib.rlib obj/third_party/rust/diplomat_runtime/v0_14/lib/libdiplomat_runtime_lib.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libstd_std.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/liballoc_alloc.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libcompiler_builtins_compiler_builtins.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libcore_core.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libprofiler_builtins_profiler_builtins.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libcfg_if_cfg_if.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/librustc_std_workspace_core_rustc_std_workspace_core.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libhashbrown_hashbrown.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/librustc_std_workspace_alloc_rustc_std_workspace_alloc.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libpanic_abort_panic_abort.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/librustc_demangle_rustc_demangle.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libstd_detect_std_detect.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/liblibc_libc.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libunwind_unwind.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libaddr2line_addr2line.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libgimli_gimli.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libminiz_oxide_miniz_oxide.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libadler2_adler2.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libobject_object.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libmemchr_memchr.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libgetopts_getopts.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/librustc_std_workspace_std_rustc_std_workspace_std.rlib local_rustc_sysroot/lib/rustlib/x86_64-unknown-linux-gnu/lib/libtest_test.rlib obj/build/rust/allocator/liballocator_6ead5877.rlib obj/build/rust/allocator/liballoc_error_handler_impl_ffi.rlib obj/build/rust/allocator/liballocator_impls_ffi.rlib obj/third_party/rust/icu_calendar/v2/lib/libicu_calendar_lib.rlib obj/third_party/rust/calendrical_calculations/v0_2/lib/libcalendrical_calculations_lib.rlib obj/third_party/rust/core_maths/v0_1/lib/libcore_maths_lib.rlib obj/third_party/rust/libm/v0_2/lib/liblibm_lib.rlib obj/third_party/rust/icu_calendar_data/v2/lib/libicu_calendar_data_lib.rlib obj/third_party/rust/icu_locale/v2/lib/libicu_locale_lib.rlib obj/third_party/rust/icu_collections/v2/lib/libicu_collections_lib.rlib obj/third_party/rust/potential_utf/v0_1/lib/libpotential_utf_lib.rlib obj/third_party/rust/writeable/v0_6/lib/libwriteable_lib.rlib obj/third_party/rust/either/v1/lib/libeither_lib.rlib obj/third_party/rust/zerovec/v0_11/lib/libzerovec_lib.rlib obj/third_party/rust/yoke/v0_8/lib/libyoke_lib.rlib obj/third_party/rust/stable_deref_trait/v1/lib/libstable_deref_trait_lib.rlib obj/third_party/rust/zerofrom/v0_1/lib/libzerofrom_lib.rlib obj/third_party/rust/icu_locale_core/v2/lib/libicu_locale_core_lib.rlib obj/third_party/rust/litemap/v0_8/lib/liblitemap_lib.rlib obj/third_party/rust/tinystr/v0_8/lib/libtinystr_lib.rlib obj/third_party/rust/icu_locale_data/v2/lib/libicu_locale_data_lib.rlib obj/third_party/rust/icu_provider/v2/lib/libicu_provider_lib.rlib obj/third_party/rust/zerotrie/v0_2/lib/libzerotrie_lib.rlib obj/third_party/rust/num_traits/v0_2/lib/libnum_traits_lib.rlib obj/third_party/rust/temporal_rs/v0_2/lib/libtemporal_rs_lib.rlib obj/third_party/rust/ixdtf/v0_6/lib/libixdtf_lib.rlib obj/third_party/rust/timezone_provider/v0_2/lib/libtimezone_provider_lib.rlib obj/third_party/rust/zoneinfo64/v0_2/lib/libzoneinfo64_lib.rlib obj/third_party/rust/resb/v0_1/lib/libresb_lib.rlib obj/third_party/rust/serde_core/v1/lib/libserde_core_lib.rlib obj/third_party/rust/serde/v1/lib/libserde_lib.rlib -Wl,--end-group 
+ld.lld: error: obj/v8/v8_base_without_compiler/builtins-api.o: DWARF unit at offset 0x00000000 has unsupported version 0, supported are 2-5
+ld.lld: error: obj/v8/v8_base_without_compiler/execution.o: DWARF unit at offset 0x00000000 has unsupported version 0, supported are 2-5
+ld.lld: error: undefined symbol: tainttracking::RuntimeAddLiteralArgumentToStackFrame(v8::internal::Isolate*, v8::internal::DirectHandle<v8::internal::Object>)
+>>> referenced by builtins-api.cc
+>>>               obj/v8/v8_base_without_compiler/builtins-api.o:(v8::internal::Builtins::InvokeApiFunction(v8::internal::Isolate*, bool, v8::internal::DirectHandle<v8::internal::FunctionTemplateInfo>, v8::internal::DirectHandle<v8::internal::Object>, v8::base::Vector<v8::internal::DirectHandle<v8::internal::Object> const>, v8::internal::DirectHandle<v8::internal::HeapObject>, tainttracking::FrameType))
+>>> referenced by builtins-api.cc
+>>>               obj/v8/v8_base_without_compiler/builtins-api.o:(v8::internal::HandleApiCallAsFunctionOrConstructorDelegate(v8::internal::Isolate*, bool, v8::internal::DirectHandle<v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>>, v8::base::Vector<unsigned long const>))
+>>> referenced by execution.cc
+>>>               obj/v8/v8_base_without_compiler/execution.o:(v8::internal::(anonymous namespace)::Invoke(v8::internal::Isolate*, v8::internal::(anonymous namespace)::InvokeParams const&))
+
+ld.lld: error: obj/v8/v8_base_without_compiler/scopes.o: DWARF unit at offset 0x00000000 has unsupported version 0, supported are 2-5
+ld.lld: error: undefined symbol: tainttracking::NodeLabel::NodeLabel()
+>>> referenced by scopes.cc
+>>>               obj/v8/v8_base_without_compiler/scopes.o:(v8::internal::DeclarationScope::HoistSloppyBlockFunctions(v8::internal::AstNodeFactory*))
+>>> referenced by scopes.cc
+>>>               obj/v8/v8_base_without_compiler/scopes.o:(v8::internal::DeclarationScope::HoistSloppyBlockFunctions(v8::internal::AstNodeFactory*))
+>>> referenced by scopes.cc
+>>>               obj/v8/v8_base_without_compiler/scopes.o:(v8::internal::AstNodeFactory::NewAssignment(v8::internal::Token::Value, v8::internal::Expression*, v8::internal::Expression*, int))
+>>> referenced 227 more times
+
+ld.lld: error: obj/v8/v8_base_without_compiler/ast.o: DWARF unit at offset 0x00000000 has unsupported version 0, supported are 2-5
+ld.lld: error: undefined symbol: tainttracking::NodeLabel::NodeLabel(tainttracking::NodeLabel const&)
+>>> referenced by ast.cc
+>>>               obj/v8/v8_base_without_compiler/ast.o:(v8::internal::AstNode::GetTaintTrackingLabel())
+
+ld.lld: error: obj/v8/v8_base_without_compiler/builtins-function.o: DWARF unit at offset 0x00000000 has unsupported version 0, supported are 2-5
+ld.lld: error: undefined symbol: tainttracking::LogIfTainted(v8::internal::DirectHandle<v8::internal::String>, v8::String::TaintSinkLabel, int, v8::internal::Isolate*)
+>>> referenced by builtins-function.cc
+>>>               obj/v8/v8_base_without_compiler/builtins-function.o:(v8::internal::(anonymous namespace)::CreateDynamicFunction(v8::internal::Isolate*, v8::internal::BuiltinArguments, char const*))
+>>> referenced by builtins-function.cc
+>>>               obj/v8/v8_base_without_compiler/builtins-function.o:(v8::internal::(anonymous namespace)::CreateDynamicFunction(v8::internal::Isolate*, v8::internal::BuiltinArguments, char const*))
+>>> referenced by builtins-function.cc
+>>>               obj/v8/v8_base_without_compiler/builtins-function.o:(v8::internal::(anonymous namespace)::CreateDynamicFunction(v8::internal::Isolate*, v8::internal::BuiltinArguments, char const*))
+
+ld.lld: error: obj/v8/v8_base_without_compiler/string-builder.o: DWARF unit at offset 0x00000000 has unsupported version 0, supported are 2-5
+ld.lld: error: undefined symbol: void tainttracking::FlattenTaintData<v8::internal::String>(v8::internal::Tagged<v8::internal::String>, unsigned char*, int, int)
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(void v8::internal::StringBuilderConcatHelper<unsigned char>(v8::internal::Tagged<v8::internal::String>, unsigned char*, v8::internal::Tagged<v8::internal::FixedArray>, unsigned int, unsigned char*))
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(void v8::internal::StringBuilderConcatHelper<unsigned char>(v8::internal::Tagged<v8::internal::String>, unsigned char*, v8::internal::Tagged<v8::internal::FixedArray>, unsigned int, unsigned char*))
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(void v8::internal::StringBuilderConcatHelper<unsigned short>(v8::internal::Tagged<v8::internal::String>, unsigned short*, v8::internal::Tagged<v8::internal::FixedArray>, unsigned int, unsigned char*))
+>>> referenced 17 more times
+
+ld.lld: error: obj/v8/v8_base_without_compiler/runtime-strings.o: DWARF unit at offset 0x00000000 has unsupported version 0, supported are 2-5
+ld.lld: error: undefined symbol: unsigned char* tainttracking::GetWriteableStringTaintData<v8::internal::SeqOneByteString>(v8::internal::Tagged<v8::internal::SeqOneByteString>)
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::ReplacementStringBuilder::ToString())
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::IncrementalStringBuilder::AppendStringByCopy(v8::internal::DirectHandle<v8::internal::String>))
+>>> referenced by runtime-strings.cc
+>>>               obj/v8/v8_base_without_compiler/runtime-strings.o:(v8::internal::__RT_impl_Runtime_StringBuilderConcat(v8::internal::Arguments<(v8::internal::ArgumentsType)0>, v8::internal::Isolate*))
+>>> referenced 2 more times
+
+ld.lld: error: undefined symbol: void tainttracking::OnJoinManyStrings<v8::internal::SeqOneByteString, v8::internal::FixedArray>(v8::internal::SeqOneByteString*, v8::internal::FixedArray*, v8::internal::Isolate*)
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::ReplacementStringBuilder::ToString())
+>>> referenced by runtime-strings.cc
+>>>               obj/v8/v8_base_without_compiler/runtime-strings.o:(v8::internal::__RT_impl_Runtime_StringBuilderConcat(v8::internal::Arguments<(v8::internal::ArgumentsType)0>, v8::internal::Isolate*))
+
+ld.lld: error: undefined symbol: unsigned char* tainttracking::GetWriteableStringTaintData<v8::internal::SeqTwoByteString>(v8::internal::Tagged<v8::internal::SeqTwoByteString>)
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::ReplacementStringBuilder::ToString())
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::IncrementalStringBuilder::AppendStringByCopy(v8::internal::DirectHandle<v8::internal::String>))
+>>> referenced by runtime-strings.cc
+>>>               obj/v8/v8_base_without_compiler/runtime-strings.o:(v8::internal::__RT_impl_Runtime_StringBuilderConcat(v8::internal::Arguments<(v8::internal::ArgumentsType)0>, v8::internal::Isolate*))
+>>> referenced 2 more times
+
+ld.lld: error: undefined symbol: void tainttracking::OnJoinManyStrings<v8::internal::SeqTwoByteString, v8::internal::FixedArray>(v8::internal::SeqTwoByteString*, v8::internal::FixedArray*, v8::internal::Isolate*)
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::ReplacementStringBuilder::ToString())
+>>> referenced by runtime-strings.cc
+>>>               obj/v8/v8_base_without_compiler/runtime-strings.o:(v8::internal::__RT_impl_Runtime_StringBuilderConcat(v8::internal::Arguments<(v8::internal::ArgumentsType)0>, v8::internal::Isolate*))
+
+ld.lld: error: obj/v8/v8_base_without_compiler/factory-base.o: DWARF unit at offset 0x00000000 has unsupported version 0, supported are 2-5
+ld.lld: error: undefined symbol: void tainttracking::InitTaintData<v8::internal::SeqOneByteString>(v8::internal::Tagged<v8::internal::SeqOneByteString>, tainttracking::TaintType)
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::IncrementalStringBuilder::IncrementalStringBuilder(v8::internal::Isolate*))
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::IncrementalStringBuilder::Extend())
+>>> referenced by factory-base.cc
+>>>               obj/v8/v8_base_without_compiler/factory-base.o:(v8::internal::MaybeHandle<v8::internal::SeqOneByteString> v8::internal::FactoryBase<v8::internal::Factory>::NewRawStringWithMap<v8::internal::SeqOneByteString>(int, v8::internal::Tagged<v8::internal::Map>, v8::internal::AllocationType, v8::internal::AllocationHint))
+>>> referenced 1 more times
+
+ld.lld: error: undefined symbol: void tainttracking::InitTaintData<v8::internal::SeqTwoByteString>(v8::internal::Tagged<v8::internal::SeqTwoByteString>, tainttracking::TaintType)
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::IncrementalStringBuilder::Extend())
+>>> referenced by factory-base.cc
+>>>               obj/v8/v8_base_without_compiler/factory-base.o:(v8::internal::MaybeHandle<v8::internal::SeqTwoByteString> v8::internal::FactoryBase<v8::internal::Factory>::NewRawStringWithMap<v8::internal::SeqTwoByteString>(int, v8::internal::Tagged<v8::internal::Map>, v8::internal::AllocationType, v8::internal::AllocationHint))
+>>> referenced by factory-base.cc
+>>>               obj/v8/v8_base_without_compiler/factory-base.o:(v8::internal::MaybeHandle<v8::internal::SeqTwoByteString> v8::internal::FactoryBase<v8::internal::LocalFactory>::NewRawStringWithMap<v8::internal::SeqTwoByteString>(int, v8::internal::Tagged<v8::internal::Map>, v8::internal::AllocationType, v8::internal::AllocationHint))
+
+ld.lld: error: undefined symbol: void tainttracking::OnGenericOperation<v8::internal::String>(tainttracking::SymbolicType, v8::internal::Tagged<v8::internal::String>, v8::internal::Isolate*)
+>>> referenced by string-builder.cc
+>>>               obj/v8/v8_base_without_compiler/string-builder.o:(v8::internal::IncrementalStringBuilder::Finish())
+
+ld.lld: error: too many errors emitted, stopping now (use --error-limit=0 to see all errors)
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.

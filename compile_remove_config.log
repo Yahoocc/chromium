@@ -1,0 +1,13 @@
+ninja: Entering directory `out/Default'
+[0/1] Regenerating ninja files
+ERROR at //v8/BUILD.gn:7980:18: Item not found
+    configs -= [ ":taint_tracking_config" ]
+                 ^-----------------------
+You were trying to remove ":taint_tracking_config"
+from the list but it wasn't there.
+See //BUILD.gn:748:19: which caused the file to be included.
+        deps += [ "//v8:v8_shell" ]
+                  ^--------------
+FAILED: [code=1] build.ninja.stamp 
+../../buildtools/linux64/gn --root=../.. -q --regeneration gen .
+ninja: error: rebuilding 'build.ninja': subcommand failed

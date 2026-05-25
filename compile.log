@@ -1,0 +1,275 @@
+You're still using Ninja.
+Please run 'gn clean out/Default' when convenient to
+upgrade this output directory to Siso (Chromium’s Ninja replacement).
+If you run into any issues by switching to Siso, please file a bug via
+go/siso-bug and switch back temporarily by setting the GN arg
+'use_siso = false'
+ninja: Entering directory `out/Default'
+[0/1] Regenerating ninja files
+[1/475] CXX obj/v8/v8_base_without_compiler/builtins-api.o
+FAILED: obj/v8/v8_base_without_compiler/builtins-api.o 
+../../third_party/llvm-build/Release+Asserts/bin/clang++ -MMD -MF obj/v8/v8_base_without_compiler/builtins-api.o.d -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-23-init-5669-g8a0be0bc-1\" -DCOMPONENT_BUILD -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7ab65651aed6802d2599dcb7a73b1f82d5179d05 -DCR_SYSROOT_KEY=20250129T203412Z-2 -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DV8_TYPED_ARRAY_MAX_SIZE_IN_HEAP=64 -DCPPGC_VERIFY_HEAP -DV8_CONTIGUOUS_COMPRESSED_RO_SPACE -DV8_CONTIGUOUS_COMPRESSED_RO_SPACE_SIZE_MB=16 -DENABLE_DISASSEMBLER -DV8_USE_HOST_CPU_ARM_FEATURES -DOBJECT_PRINT -DALWAYS_MAGLEV_GRAPH_LABELLER -DVERIFY_HEAP -DV8_VERIFY_WRITE_BARRIERS -DV8_TRACE_MAPS -DV8_ENABLE_ALLOCATION_TIMEOUT -DV8_ENABLE_FORCE_SLOW_PATH -DV8_ENABLE_DOUBLE_CONST_STORE_CHECK -DV8_HASHES_COLLIDE -DV8_INTL_SUPPORT -DV8_TEMPORAL_SUPPORT -DENABLE_LOCAL_HANDLE_ZAPPING -DENABLE_GLOBAL_HANDLE_ZAPPING -DV8_CODE_COMMENTS -DV8_ENABLE_DEBUG_CODE -DV8_ENABLE_SLOW_DEBUG_CODE_BY_DEFAULT -DV8_ENABLE_HEAP_SNAPSHOT_VERIFY -DV8_SNAPSHOT_NATIVE_CODE_COUNTERS -DV8_USE_EXTERNAL_STARTUP_DATA -DV8_ATOMIC_OBJECT_FIELD_WRITES -DV8_ENABLE_LAZY_SOURCE_POSITIONS -DV8_WIN64_UNWINDING_INFO -DV8_ENABLE_REGEXP_INTERPRETER_THREADED_DISPATCH -DV8_SHORT_BUILTIN_CALLS -DV8_EXTERNAL_CODE_SPACE -DV8_ENABLE_SPARKPLUG -DV8_ENABLE_MAGLEV -DV8_ENABLE_TURBOFAN -DV8_ENABLE_WEBASSEMBLY -DV8_ENABLE_CONTINUATION_PRESERVED_EMBEDDER_DATA -DV8_ALLOCATION_FOLDING -DV8_ALLOCATION_SITE_TRACKING -DV8_ADVANCED_BIGINT_ALGORITHMS -DV8_STATIC_ROOTS -DV8_USE_ZLIB -DV8_USE_LIBM_TRIG_FUNCTIONS -DV8_ENABLE_WASM_SIMD256_REVEC -DV8_ENABLE_SLOW_TRACING -DV8_ENABLE_BUILTIN_JUMP_TABLE_SWITCH -DV8_ENABLE_EXTENSIBLE_RO_SNAPSHOT -DV8_ENABLE_BLACK_ALLOCATED_PAGES -DV8_ENABLE_UNDEFINED_DOUBLE -DV8_WASM_RANDOM_FUZZERS -DV8_ARRAY_BUFFER_INTERNAL_FIELD_COUNT=0 -DV8_ARRAY_BUFFER_VIEW_INTERNAL_FIELD_COUNT=0 -DV8_PROMISE_INTERNAL_FIELD_COUNT=0 -DV8_USE_DEFAULT_HASHER_SECRET=true -DV8_ENABLE_CHECKS -DV8_ENABLE_MEMORY_ACCOUNTING_CHECKS -DV8_COMPRESS_POINTERS -DV8_COMPRESS_POINTERS_IN_SHARED_CAGE -DV8_31BIT_SMIS_ON_64BIT_ARCH -DV8_ENABLE_SANDBOX -DV8_DEPRECATION_WARNINGS -DV8_USE_PERFETTO -DV8_USE_PERFETTO_JSON_EXPORT -DV8_HAVE_TARGET_OS -DV8_TARGET_OS_LINUX -DCPPGC_ENABLE_API_CHECKS -DCPPGC_CAGED_HEAP -DCPPGC_YOUNG_GENERATION -DCPPGC_POINTER_COMPRESSION -DCPPGC_ENABLE_LARGER_CAGE -DCPPGC_SLIM_WRITE_BARRIER -DV8_TARGET_ARCH_X64 -DDEBUG -DV8_RUNTIME_CALL_STATS -DBUILDING_V8_SHARED_PRIVATE -DUSING_V8_BASE_SHARED -DABSL_ALLOCATOR_NOTHROW=1 -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0 -DUSING_V8_PLATFORM_SHARED -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DUSE_CHROMIUM_ICU=1 -DU_ENABLE_TRACING=1 -DU_ENABLE_RESOURCE_TRACING=0 -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE -DTEMPORAL_CAPI_VERSION_0_2 -DUSE_LIBCXX_MODULES -I../.. -Igen -I../../v8 -I../../v8/include -Igen/v8 -Igen/v8/include -I../../third_party/perfetto/include -Igen/third_party/perfetto -Igen/third_party/perfetto/build_config -I../../third_party/abseil-cpp -I../../third_party/protobuf/src -I../../third_party/icu/source/common -I../../third_party/icu/source/i18n -I../../third_party/fp16/src/include -I../../third_party/rust/chromium_crates_io/vendor/temporal_capi-v0_2/bindings/cpp -I../../third_party/dragonbox/src/include -I../../third_party/fast_float/src/include -I../../third_party/highway/src -I../../third_party/zlib -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wno-uninitialized-const-pointer -Wexit-time-destructors -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-math-errno -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fcrash-diagnostics-dir=../clang-crashreports -fno-lifetime-dse -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers --target=x86_64-unknown-linux-gnu -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -Xclang -fmodule-file-home-is-cwd -Xclang -fmodules-cache-path=/not_exist_dummy_dir --warning-suppression-mappings=../../build/config/warning_suppression.txt -ftrivial-auto-var-init=pattern -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -ggnu-pubnames -Xclang -fuse-ctor-homing -gsplit-dwarf -fsanitize=array-bounds -fsanitize-trap=array-bounds -fsanitize-ignore-for-ubsan-feature=array-bounds -Wno-unsafe-buffer-usage-in-static-sized-array -fsanitize=return -fsanitize-trap=return -fsanitize-ignore-for-ubsan-feature=return -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-std-ranges-pipe-operator -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../third_party/dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../build/config/clang/chrome/test/fuzzing/webidl_fuzzing/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang no-special-treatment-for-oilpanized-paths -DUNSAFE_BUFFERS_BUILD -Wunsafe-buffer-usage -Wno-error=unsafe-buffer-usage -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../build/config/unsafe_buffers_paths.txt -Wunreachable-code -Wlifetime-safety-permissive -Wctad-maybe-unsupported -Xclang -add-plugin -Xclang blink-gc-plugin -Wno-invalid-offsetof -Wno-macro-redefined -Wshorten-64-to-32 -Wmissing-field-initializers -Wunnecessary-virtual-specifier -O3 -fdata-sections -ffunction-sections -fno-unique-section-names -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-nullability-completeness -Wunique-object-duplication -std=c++23 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystemgen/third_party/libc++/src/include -isystem../../third_party/libc++abi/src/include --sysroot=../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden -fbuiltin-module-map -fmodules -fno-implicit-module-maps -fno-implicit-modules -Xclang -fmodules-local-submodule-visibility -Wno-modules-ambiguous-internal-linkage -Wno-modules-import-nested-redundant -Xclang -fmodules-disable-diagnostic-validation -Wno-module-import-in-extern-c -fmodule-map-file=gen/build/modules/linux/module.modulemap -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_float=obj/build/modules/linux/_Builtin_float/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_intrinsics=obj/build/modules/linux/_Builtin_intrinsics/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_inttypes=obj/build/modules/linux/_Builtin_inttypes/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_iso646=obj/build/modules/linux/_Builtin_iso646/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_limits=obj/build/modules/linux/_Builtin_limits/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_stdalign=obj/build/modules/linux/_Builtin_stdalign/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_stdarg=obj/build/modules/linux/_Builtin_stdarg/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_stdatomic=obj/build/modules/linux/_Builtin_stdatomic/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_stdbool=obj/build/modules/linux/_Builtin_stdbool/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_stdcountof=obj/build/modules/linux/_Builtin_stdcountof/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_stddef=obj/build/modules/linux/_Builtin_stddef/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_stddef_wint_t=obj/build/modules/linux/_Builtin_stddef_wint_t/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_stdint=obj/build/modules/linux/_Builtin_stdint/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_stdnoreturn=obj/build/modules/linux/_Builtin_stdnoreturn/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=_Builtin_unwind=obj/build/modules/linux/_Builtin_unwind/module.pcm -fmodule-map-file=../../third_party/llvm-build/Release+Asserts/lib/clang/23/include/module.modulemap -fmodule-file=ptrauth=obj/build/modules/linux/ptrauth/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std=obj/build/modules/linux/std/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_complex_h=obj/build/modules/linux/std_complex_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_core=obj/build/modules/linux/std_core/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_ctype_h=obj/build/modules/linux/std_ctype_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_errno_h=obj/build/modules/linux/std_errno_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_fenv_h=obj/build/modules/linux/std_fenv_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_float_h=obj/build/modules/linux/std_float_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_inttypes_h=obj/build/modules/linux/std_inttypes_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_math_h=obj/build/modules/linux/std_math_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_private_mbstate_t=obj/build/modules/linux/std_private_mbstate_t/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_stdatomic_h=obj/build/modules/linux/std_stdatomic_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_string_h=obj/build/modules/linux/std_string_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_tgmath_h=obj/build/modules/linux/std_tgmath_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_uchar_h=obj/build/modules/linux/std_uchar_h/module.pcm -fmodule-map-file=gen/third_party/libc++/src/include/module.modulemap -fmodule-file=std_wctype_h=obj/build/modules/linux/std_wctype_h/module.pcm -fmodule-map-file=gen/build/modules/linux/module.modulemap -fmodule-file=sys_stage1=obj/build/modules/linux/sys_stage1/module.pcm -fmodule-map-file=gen/build/modules/linux/module.modulemap -fmodule-file=sys_stage2=obj/build/modules/linux/sys_stage2/module.pcm -c ../../v8/src/builtins/builtins-api.cc -o obj/v8/v8_base_without_compiler/builtins-api.o
+../../v8/src/builtins/builtins-api.cc:21:11: error: no viable conversion from 'Tagged<Union<FunctionTemplateInfo, Undefined>>' to 'Object *'
+   21 |   Object* recv_type = info->signature();
+      |           ^           ~~~~~~~~~~~~~~~~~
+../../v8/src/builtins/builtins-api.cc:23:19: error: no member named 'IsFunctionTemplateInfo' in 'v8::internal::Object'
+   23 |   if (!recv_type->IsFunctionTemplateInfo()) return receiver;
+      |        ~~~~~~~~~  ^
+../../v8/src/builtins/builtins-api.cc:24:59: error: call to non-static member function without an object argument
+   24 |   FunctionTemplateInfo* signature = FunctionTemplateInfo::cast(recv_type);
+      |                                     ~~~~~~~~~~~~~~~~~~~~~~^~~~
+../../v8/src/builtins/builtins-api.cc:28:25: error: no member named 'has_hidden_prototype' in 'v8::internal::Map'
+   28 |   if (!receiver->map()->has_hidden_prototype()) return nullptr;
+      |        ~~~~~~~~~~~~~~~~~^
+../../v8/src/builtins/builtins-api.cc:29:8: error: unknown type name 'PrototypeIterator'
+   29 |   for (PrototypeIterator iter(isolate, receiver, kStartAtPrototype,
+      |        ^
+../../v8/src/builtins/builtins-api.cc:30:31: error: use of undeclared identifier 'PrototypeIterator'
+   30 |                               PrototypeIterator::END_AT_NON_HIDDEN);
+      |                               ^
+../../v8/src/builtins/builtins-api.cc:39:1: error: unknown type name 'MUST_USE_RESULT'
+   39 | MUST_USE_RESULT MaybeHandle<Object> HandleApiCallHelper(
+      | ^
+../../v8/src/builtins/builtins-api.cc:39:17: error: no variable template matches partial specialization
+   39 | MUST_USE_RESULT MaybeHandle<Object> HandleApiCallHelper(
+      |                 ^
+../../v8/src/builtins/builtins-api.cc:39:36: error: expected ';' after top level declarator
+   39 | MUST_USE_RESULT MaybeHandle<Object> HandleApiCallHelper(
+      |                                    ^
+      |                                    ;
+../../v8/src/builtins/builtins-api.cc:59:9: error: too many arguments provided to function-like macro invocation
+   59 |         Object);
+      |         ^
+../../v8/src/execution/isolate.h:293:9: note: macro 'ASSIGN_RETURN_ON_EXCEPTION' defined here
+  293 | #define ASSIGN_RETURN_ON_EXCEPTION(isolate, dst, call) \
+      |         ^
+../../v8/src/builtins/builtins-api.cc:70:71: error: too many arguments provided to function-like macro invocation
+   70 |           isolate, NewTypeError(MessageTemplate::kIllegalInvocation), Object);
+      |                                                                       ^
+../../v8/src/execution/isolate.h:309:9: note: macro 'THROW_NEW_ERROR' defined here
+  309 | #define THROW_NEW_ERROR(isolate, call) \
+      |         ^
+../../v8/src/builtins/builtins-api.cc:87:71: error: too many arguments provided to function-like macro invocation
+   87 |           isolate, NewTypeError(MessageTemplate::kIllegalInvocation), Object);
+      |                                                                       ^
+../../v8/src/execution/isolate.h:309:9: note: macro 'THROW_NEW_ERROR' defined here
+  309 | #define THROW_NEW_ERROR(isolate, call) \
+      |         ^
+../../v8/src/builtins/builtins-api.cc:123:1: error: no member named 'kBuiltin_HandleApiCall' in 'v8::internal::RuntimeCallCounterId'; did you mean 'Builtin_Impl_HandleApiCall'?
+  123 | BUILTIN(HandleApiCall) {
+      | ^~~~~~~~~~~~~~~~~~~~~~
+../../v8/src/builtins/builtins-utils.h:174:23: note: expanded from macro 'BUILTIN'
+  174 | #define BUILTIN(name) BUILTIN_RCS(name)
+      |                       ^~~~~~~~~~~~~~~~~
+../../v8/src/builtins/builtins-utils.h:138:24: note: expanded from macro 'BUILTIN_RCS'
+  138 |     RCS_SCOPE(isolate, RuntimeCallCounterId::kBuiltin_##name);             \
+      |                        ^                     ~~~~~~~~~~~~~~~
+../../v8/src/logging/runtime-call-stats-scope.h:24:56: note: expanded from macro 'RCS_SCOPE'
+   24 |                                              __LINE__)(__VA_ARGS__)
+      |                                                        ^~~~~~~~~~~
+../../v8/src/builtins/builtins-api.cc:123:1: note: 'Builtin_Impl_HandleApiCall' declared here
+../../v8/src/builtins/builtins-utils.h:174:23: note: expanded from macro 'BUILTIN'
+  174 | #define BUILTIN(name) BUILTIN_RCS(name)
+      |                       ^
+../../v8/src/builtins/builtins-utils.h:132:47: note: expanded from macro 'BUILTIN_RCS'
+  132 |   V8_WARN_UNUSED_RESULT static Tagged<Object> Builtin_Impl_##name(         \
+      |                                               ^
+<scratch space>:37:1: note: expanded from here
+   37 | Builtin_Impl_HandleApiCall
+      | ^
+../../v8/src/builtins/builtins-api.cc:123:1: error: no matching constructor for initialization of 'v8::internal::RuntimeCallTimerScope'
+  123 | BUILTIN(HandleApiCall) {
+      | ^~~~~~~~~~~~~~~~~~~~~~
+../../v8/src/builtins/builtins-utils.h:174:23: note: expanded from macro 'BUILTIN'
+  174 | #define BUILTIN(name) BUILTIN_RCS(name)
+      |                       ^~~~~~~~~~~~~~~~~
+../../v8/src/builtins/builtins-utils.h:138:5: note: expanded from macro 'BUILTIN_RCS'
+  138 |     RCS_SCOPE(isolate, RuntimeCallCounterId::kBuiltin_##name);             \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../v8/src/logging/runtime-call-stats-scope.h:23:39: note: expanded from macro 'RCS_SCOPE'
+   23 |   v8::internal::RuntimeCallTimerScope CONCAT(rcs_timer_scope, \
+      |                                       ^
+   24 |                                              __LINE__)(__VA_ARGS__)
+      |                                                        ~~~~~~~~~~~
+../../v8/src/base/macros.h:23:24: note: expanded from macro 'CONCAT'
+   23 | #define CONCAT(a, ...) CONCAT_(a, __VA_ARGS__)
+      |                        ^
+../../v8/src/base/macros.h:22:25: note: expanded from macro 'CONCAT_'
+   22 | #define CONCAT_(a, ...) a##__VA_ARGS__
+      |                         ^
+<scratch space>:41:1: note: expanded from here
+   41 | rcs_timer_scope123
+      | ^
+../../v8/src/logging/runtime-call-stats-scope.h:26:24: note: candidate constructor not viable: no known conversion from 'Tagged<Object> (BuiltinArguments, Isolate *)' to 'RuntimeCallCounterId' for 2nd argument
+   26 | RuntimeCallTimerScope::RuntimeCallTimerScope(Isolate* isolate,
+      |                        ^
+   27 |                                              RuntimeCallCounterId counter_id) {
+      |                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../v8/src/logging/runtime-call-stats.h:793:10: note: candidate constructor not viable: no known conversion from 'Isolate *' to 'RuntimeCallStats *' for 1st argument
+  793 |   inline RuntimeCallTimerScope(RuntimeCallStats* stats,
+      |          ^                     ~~~~~~~~~~~~~~~~~~~~~~~
+../../v8/src/logging/runtime-call-stats-scope.h:33:24: note: candidate constructor not viable: no known conversion from 'Isolate *' to 'LocalIsolate *' for 1st argument
+   33 | RuntimeCallTimerScope::RuntimeCallTimerScope(
+      |                        ^
+   34 |     LocalIsolate* isolate, RuntimeCallCounterId counter_id,
+      |     ~~~~~~~~~~~~~~~~~~~~~
+../../v8/src/logging/runtime-call-stats.h:816:3: note: candidate constructor not viable: requires 1 argument, but 2 were provided
+  816 |   RuntimeCallTimerScope(const RuntimeCallTimerScope&) = delete;
+      |   ^                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../v8/src/builtins/builtins-api.cc:125:38: error: 'target' does not name a template but is followed by template arguments
+  125 |   Handle<JSFunction> function = args.target<JSFunction>();
+      |                                      ^     ~~~~~~~~~~~~
+../../v8/src/builtins/builtins-utils.h:82:29: note: non-template declaration found by name lookup
+   82 |   inline Handle<JSFunction> target() const;
+      |                             ^
+In module 'std_core' imported from ../../v8/src/base/macros.h:9:
+gen/third_party/libc++/src/include/__type_traits/is_base_of.h:26:83: error: incomplete type 'v8::internal::HeapNumber' used in type trait expression
+   26 | _LIBCPP_NO_SPECIALIZATIONS inline constexpr bool is_base_of_v = __is_base_of(_Bp, _Dp);
+      |                                                                                   ^
+../../v8/src/objects/tagged.h:327:12: note: in instantiation of variable template specialization 'std::is_base_of_v<v8::internal::HeapObject, v8::internal::HeapNumber>' requested here
+  327 |     return is_base_of_v<Base, Derived> ||
+      |            ^
+../../v8/src/objects/tagged.h:291:22: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper<v8::internal::HeapNumber, v8::internal::HeapObject>' requested here
+  291 |       return (... || is_subtype_helper<Derived, Ts>());
+      |                      ^
+../../v8/src/objects/tagged.h:290:12: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper()::(lambda)::operator()<v8::internal::Smi, v8::internal::HeapObject>' requested here
+  290 |     return []<typename... Ts>(std::type_identity<Union<Ts...>>) consteval {
+      |            ^
+../../v8/src/objects/tagged.h:286:22: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper<v8::internal::HeapNumber, v8::internal::Union<v8::internal::Smi, v8::internal::HeapObject>>' requested here
+  286 |       return (... && is_subtype_helper<Ts, Base>());
+      |                      ^
+../../v8/src/objects/tagged.h:285:12: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper()::(lambda)::operator()<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>' requested here
+  285 |     return []<typename... Ts>(std::type_identity<Union<Ts...>>) consteval {
+      |            ^
+../../v8/src/objects/tagged.h:221:46: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper<v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>, v8::internal::Object>' requested here
+  221 | static constexpr bool is_subtype_v = detail::is_subtype_helper<Derived, Base>();
+      |                                              ^
+../../v8/src/handles/handles.h:172:14: note: in instantiation of variable template specialization 'v8::internal::is_subtype_v<v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>, v8::internal::Object>' requested here
+  172 |     requires(is_subtype_v<S, T>)
+      |              ^
+../../v8/src/handles/handles.h:172:14: note: while substituting template arguments into constraint expression here
+  172 |     requires(is_subtype_v<S, T>)
+      |              ^~~~~~~~~~~~~~~~~~
+../../v8/src/builtins/builtins-api.cc:126:18: note: while checking constraint satisfaction for template 'Handle<v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>>' required here
+  126 |   Handle<Object> receiver = args.receiver();
+      |                  ^~~~~~~~
+../../v8/src/builtins/builtins-api.cc:126:18: note: while substituting deduced template arguments into function template 'Handle' [with S = v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>]
+../../v8/src/common/globals.h:1270:7: note: forward declaration of 'v8::internal::HeapNumber'
+ 1270 | class HeapNumber;
+      |       ^
+In module 'std_core' imported from ../../v8/src/base/macros.h:9:
+gen/third_party/libc++/src/include/__type_traits/is_base_of.h:26:83: error: incomplete type 'v8::internal::HeapNumber' used in type trait expression
+   26 | _LIBCPP_NO_SPECIALIZATIONS inline constexpr bool is_base_of_v = __is_base_of(_Bp, _Dp);
+      |                                                                                   ^
+../../v8/src/objects/tagged.h:328:12: note: in instantiation of variable template specialization 'std::is_base_of_v<v8::internal::HeapObjectLayout, v8::internal::HeapNumber>' requested here
+  328 |            is_base_of_v<typename layout_type<Base>::type, Derived>;
+      |            ^
+../../v8/src/objects/tagged.h:291:22: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper<v8::internal::HeapNumber, v8::internal::HeapObject>' requested here
+  291 |       return (... || is_subtype_helper<Derived, Ts>());
+      |                      ^
+../../v8/src/objects/tagged.h:290:12: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper()::(lambda)::operator()<v8::internal::Smi, v8::internal::HeapObject>' requested here
+  290 |     return []<typename... Ts>(std::type_identity<Union<Ts...>>) consteval {
+      |            ^
+../../v8/src/objects/tagged.h:286:22: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper<v8::internal::HeapNumber, v8::internal::Union<v8::internal::Smi, v8::internal::HeapObject>>' requested here
+  286 |       return (... && is_subtype_helper<Ts, Base>());
+      |                      ^
+../../v8/src/objects/tagged.h:285:12: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper()::(lambda)::operator()<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>' requested here
+  285 |     return []<typename... Ts>(std::type_identity<Union<Ts...>>) consteval {
+      |            ^
+../../v8/src/objects/tagged.h:221:46: note: in instantiation of function template specialization 'v8::internal::detail::is_subtype_helper<v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>, v8::internal::Object>' requested here
+  221 | static constexpr bool is_subtype_v = detail::is_subtype_helper<Derived, Base>();
+      |                                              ^
+../../v8/src/handles/handles.h:172:14: note: in instantiation of variable template specialization 'v8::internal::is_subtype_v<v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>, v8::internal::Object>' requested here
+  172 |     requires(is_subtype_v<S, T>)
+      |              ^
+../../v8/src/handles/handles.h:172:14: note: while substituting template arguments into constraint expression here
+  172 |     requires(is_subtype_v<S, T>)
+      |              ^~~~~~~~~~~~~~~~~~
+../../v8/src/builtins/builtins-api.cc:126:18: note: while checking constraint satisfaction for template 'Handle<v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>>' required here
+  126 |   Handle<Object> receiver = args.receiver();
+      |                  ^~~~~~~~
+../../v8/src/builtins/builtins-api.cc:126:18: note: while substituting deduced template arguments into function template 'Handle' [with S = v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>]
+../../v8/src/common/globals.h:1270:7: note: forward declaration of 'v8::internal::HeapNumber'
+ 1270 | class HeapNumber;
+      |       ^
+../../v8/src/builtins/builtins-api.cc:126:18: error: no viable conversion from 'Handle<JSAny>' to 'Handle<Object>'
+  126 |   Handle<Object> receiver = args.receiver();
+      |                  ^          ~~~~~~~~~~~~~~~
+../../v8/src/handles/handles.h:150:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'Handle<JSAny>' (aka 'Handle<Union<Smi, HeapNumber, BigInt, String, Symbol, Boolean, Null, Undefined, JSReceiver>>') to 'const Handle<v8::internal::Object> &' for 1st argument
+  150 | class Handle final : public HandleBase {
+      |       ^~~~~~
+../../v8/src/handles/handles.h:150:7: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'Handle<JSAny>' (aka 'Handle<Union<Smi, HeapNumber, BigInt, String, Symbol, Boolean, Null, Undefined, JSReceiver>>') to 'Handle<v8::internal::Object> &&' for 1st argument
+  150 | class Handle final : public HandleBase {
+      |       ^~~~~~
+../../v8/src/handles/handles.h:171:13: note: candidate template ignored: constraints not satisfied [with S = v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>]
+  171 |   V8_INLINE Handle(Handle<S> handle)
+      |             ^
+../../v8/src/handles/handles.h:172:14: note: because 'is_subtype_v<v8::internal::Union<v8::internal::Smi, v8::internal::HeapNumber, v8::internal::BigInt, v8::internal::String, v8::internal::Symbol, v8::internal::Boolean, v8::internal::Null, v8::internal::Undefined, v8::internal::JSReceiver>, v8::internal::Object>' evaluated to false
+  172 |     requires(is_subtype_v<S, T>)
+      |              ^
+../../v8/src/handles/handles.h:157:22: note: explicit constructor is not a candidate
+  157 |   V8_INLINE explicit Handle(Address* location) : HandleBase(location) {
+      |                      ^
+In module 'std_core' imported from ../../v8/src/base/macros.h:9:
+gen/third_party/libc++/src/include/__type_traits/is_base_of.h:26:83: error: incomplete type 'v8::internal::JSFunction' used in type trait expression
+   26 | _LIBCPP_NO_SPECIALIZATIONS inline constexpr bool is_base_of_v = __is_base_of(_Bp, _Dp);
+      |                                                                                   ^
+../../v8/src/objects/tagged.h:1002:20: note: in instantiation of variable template specialization 'std::is_base_of_v<v8::internal::HeapObjectLayout, v8::internal::JSFunction>' requested here
+ 1002 |     requires(!std::is_base_of_v<HeapObjectLayout, T>)
+      |                    ^
+../../v8/src/objects/tagged.h:1002:14: note: while substituting template arguments into constraint expression here
+ 1002 |     requires(!std::is_base_of_v<HeapObjectLayout, T>)
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../v8/src/objects/tagged.h:1000:57: note: while checking constraint satisfaction for function 'operator_arrow_impl' required here
+ 1000 |   V8_INLINE constexpr detail::TaggedOperatorArrowRef<T> operator_arrow_impl()
+      |                                                         ^~~~~~~~~~~~~~~~~~~
+../../v8/src/builtins/builtins-api.cc:128:49: note: in instantiation of member function 'v8::internal::Tagged<v8::internal::JSFunction>::operator->' requested here
+  128 |   Handle<FunctionTemplateInfo> fun_data(function->shared()->get_api_func_data(),
+      |                                                 ^
+../../v8/src/common/globals.h:1282:7: note: forward declaration of 'v8::internal::JSFunction'
+ 1282 | class JSFunction;
+      |       ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+[2/475] CXX obj/v8/v8_base_without_compiler/property.o
+[3/475] CXX obj/v8/v8_base_without_compiler/visitors.o
+[4/475] CXX obj/v8/v8_base_without_compiler/js-weak-refs.o
+[5/475] CXX obj/v8/v8_base_without_compiler/lookup.o
+[6/475] CXX obj/v8/v8_base_without_compiler/import-attributes.o
+[7/475] CXX obj/v8/v8_base_without_compiler/func-name-inferrer.o
+[8/475] CXX obj/v8/v8_base_without_compiler/map-updater.o
+[9/475] CXX obj/v8/v8_base_without_compiler/shared-function-info.o
+[10/475] CXX obj/v8/v8_base_without_compiler/js-temporal-helpers.o
+[11/475] CXX obj/v8/v8_base_without_compiler/ordered-hash-table.o
+[12/475] CXX obj/v8/v8_base_without_compiler/literal-objects.o
+[13/475] CXX obj/v8/v8_base_without_compiler/managed.o
+[14/475] CXX obj/v8/v8_base_without_compiler/module.o
+[15/475] CXX obj/v8/v8_base_without_compiler/property-descriptor.o
+[16/475] CXX obj/v8/v8_base_without_compiler/regexp-match-info.o
+[17/475] CXX obj/v8/v8_base_without_compiler/scope-info.o
+[18/475] CXX obj/v8/v8_base_without_compiler/script.o
+[19/475] CXX obj/v8/v8_base_without_compiler/string.o
+[20/475] CXX obj/v8/v8_base_without_compiler/synthetic-module.o
+[21/475] CXX obj/v8/v8_base_without_compiler/template-objects.o
+[22/475] CXX obj/v8/v8_base_without_compiler/templates.o
+[23/475] CXX obj/v8/v8_base_without_compiler/transitions.o
+[24/475] CXX obj/v8/v8_base_without_compiler/value-serializer.o
+[25/475] CXX obj/v8/v8_base_without_compiler/string-comparator.o
+[26/475] CXX obj/v8/v8_base_without_compiler/swiss-name-dictionary.o
+[27/475] CXX obj/v8/v8_base_without_compiler/objects.o
+[28/475] CXX obj/v8/v8_base_without_compiler/keys.o
+[29/475] CXX obj/v8/v8_base_without_compiler/object-type.o
+[30/475] CXX obj/v8/v8_base_without_compiler/string-forwarding-table.o
+[31/475] CXX obj/v8/v8_base_without_compiler/symbol-table.o
+[32/475] CXX obj/v8/v8_base_without_compiler/map.o
+[33/475] CXX obj/v8/v8_base_without_compiler/number-string-cache.o
+[34/475] CXX obj/v8/v8_base_without_compiler/waiter-queue-node.o
+[35/475] CXX obj/v8/v8_base_without_compiler/js-segments.o
+[36/475] CXX obj/v8/v8_base_without_compiler/source-text-module.o
+[37/475] CXX obj/v8/v8_base_without_compiler/simd.o
+[38/475] CXX obj/v8/v8_base_without_compiler/bytecode-array-builder.o
+[39/475] CXX obj/v8/v8_base_without_compiler/string-table.o
+[40/475] CXX obj/v8/v8_base_without_compiler/js-struct.o
+[41/475] CXX obj/v8/v8_base_without_compiler/option-utils.o
+[42/475] CXX obj/v8/v8_base_without_compiler/tagged-impl.o
+ninja: build stopped: subcommand failed.

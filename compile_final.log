@@ -1,0 +1,8 @@
+ninja: Entering directory `out/Default'
+[0/1] Regenerating ninja files
+[1/9] LINK ./mksnapshot
+[2/9] ACTION //v8:run_mksnapshot_default(//build/toolchain/linux:clang_x64)
+FAILED: [code=245] gen/v8/src/builtins/builtins-effects.cc gen/v8/embedded.S snapshot_blob.bin 
+python3 ../../v8/tools/run.py ./mksnapshot --turbo_instruction_scheduling --turbo-always-optimize-spills --target_os=linux --target_arch=x64 --embedded_src gen/v8/embedded.S --predictable --no-use-ic --builtins-effects-src gen/v8/src/builtins/builtins-effects.cc --turbo-elide-frames --embedded_variant Default --random-seed 314159265 --startup_blob snapshot_blob.bin --native-code-counters --concurrent-builtin-generation --concurrent-turbofan-max-threads=0 --verify-heap
+Return code is -11
+ninja: build stopped: subcommand failed.

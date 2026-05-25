@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '/^[[:space:]]*\\(v8_source_set|v8_component\\)/ {target=$0} /src\\\\/taint_tracking\\\\/taint_tracking\\\\.cc/ {print target; exit}' /home/wisdom/Desktop/chromium_local/chromium/src/v8/BUILD.gn)",
+      "Bash(awk 'BEGIN {target=\"\"} /^v8_source_set\\\\\\(|^v8_component\\\\\\(/ {target=NR\":\"$0} /src\\\\/taint_tracking\\\\/taint_tracking\\\\.cc/ {print target; exit}' /home/wisdom/Desktop/chromium_local/chromium/src/v8/BUILD.gn)",
+      "Bash(tee compile_test.log)",
+      "Bash(ls -lh /usr/lib/gcc/x86_64-linux-gnu/*/libsupc++.a)",
+      "Read(//usr/lib/gcc/x86_64-linux-gnu/**)",
+      "Bash(nm /usr/lib/gcc/x86_64-linux-gnu/12/libsupc++.a)",
+      "Bash(tee compile_fix.log)",
+      "Bash(tee compile_final.log)",
+      "Bash(awk '/^v8_source_set\\\\\\(\"v8_init\"\\\\\\)/ {found=1; start=NR} found && /sources = \\\\[/ {in_sources=1} in_sources && /\\\\]/ {in_sources=0} in_sources {print NR\":\"$0} found && NR > start+200 {exit}' /home/wisdom/Desktop/chromium_local/chromium/src/v8/BUILD.gn)",
+      "Bash(awk '/^v8_cluster_source_set\\\\\\(\"v8_base_without_compiler\"\\\\\\)/ {found=1; count=0} found {print NR\":\"$0; if \\(/^}/\\) {count++; if \\(count==1\\) exit}}' /home/wisdom/Desktop/chromium_local/chromium/src/v8/BUILD.gn)",
+      "Bash(autoninja -C out/Default chrome)",
+      "Bash(ninja -C out/Default chrome)",
+      "Bash(tee compile_test2.log)",
+      "Bash(third_party/depot_tools/autoninja -C out/Default chrome)",
+      "Bash(tee compile_remove_config.log)",
+      "Bash(tee gn_error.log)",
+      "Bash(third_party/depot_tools/gn gen *)",
+      "Bash(ninja -C out/Default mksnapshot)",
+      "Bash(tee compile_stub_fix.log)",
+      "Bash(tee compile_minimal_headers.log)",
+      "Bash(tee compile_template_impl.log)",
+      "Bash(tee compile_with_handles.log)",
+      "Bash(tee compile_all_stubs.log)",
+      "Bash(tee compile_fixed_tainttracker.log)",
+      "Bash(tee compile_complete_stubs.log)",
+      "Bash(tee compile_with_impl.log)",
+      "Bash(ldd out/Default/mksnapshot)",
+      "Bash(ldd out/Default/d8)",
+      "Bash(nm out/Default/libv8.so)",
+      "Bash(nm out/Default/mksnapshot)",
+      "Bash(objdump -t out/Default/obj/v8/v8_taint_tracking_stub/taint_tracking_stub.o)",
+      "Bash(gn desc *)",
+      "Bash(ldd out/Default/libv8.so)",
+      "Bash(nm -S out/Default/obj/v8/v8_taint_tracking_stub/taint_tracking_stub.o)",
+      "Bash(nm -S out/Default/libv8.so)",
+      "Bash(tee compile_capnp_fix.log)",
+      "Bash(tee /tmp/compile_output.log)",
+      "Bash(ninja -C out/Default -t clean d8)",
+      "Bash(out/Default/d8 --version)",
+      "Bash(tee compile_success.log)",
+      "Bash(cp /tmp/claude-1000/-home-wisdom-Desktop-chromium-local-chromium-src/750fadb8-1186-4ca0-8282-199bdf02f4aa/tasks/b5r7hzp3h.output compile_success_full.log && echo \"编译日志已保存到 compile_success_full.log\")"
+    ],
+    "additionalDirectories": [
+      "/tmp/claude-1000/-home-wisdom-Desktop-chromium-local-chromium-src/750fadb8-1186-4ca0-8282-199bdf02f4aa/tasks"
+    ]
+  }
+}
