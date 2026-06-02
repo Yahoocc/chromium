@@ -47,6 +47,7 @@
 #include "third_party/blink/renderer/platform/wtf/text/string_hash.h"
 #include "third_party/blink/renderer/platform/wtf/text/string_internal.h"
 #include "third_party/blink/renderer/platform/wtf/text/string_to_number.h"
+#include "third_party/blink/renderer/platform/wtf/text/taint_tracking.h"
 #include "third_party/blink/renderer/platform/wtf/text/unicode.h"
 #include "third_party/blink/renderer/platform/wtf/text/unicode_string.h"
 #include "third_party/blink/renderer/platform/wtf/text/utf16.h"
@@ -200,6 +201,7 @@ scoped_refptr<StringImpl> StringImpl::CreateUninitialized(
       AllocationSize<LChar>(narrowed_length), "blink::StringImpl"))
       StringImpl(narrowed_length, kForce8BitConstructor);
 
+  tainttracking::webkit::StringTaint::InitTaintData(string);
   data = string->CharacterBuffer<LChar>();
   return base::AdoptRef(string);
 }
@@ -220,6 +222,7 @@ scoped_refptr<StringImpl> StringImpl::CreateUninitialized(
       AllocationSize<UChar>(narrowed_length), "blink::StringImpl"))
       StringImpl(narrowed_length);
 
+  tainttracking::webkit::StringTaint::InitTaintData(string);
   data = string->CharacterBuffer<UChar>();
   return base::AdoptRef(string);
 }

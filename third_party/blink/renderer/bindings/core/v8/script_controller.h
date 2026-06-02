@@ -110,6 +110,9 @@ class CORE_EXPORT ScriptController final
   void UpdateDocument();
   void UpdateSecurityOrigin(const SecurityOrigin*);
 
+  // Taint tracking: Update the taint tracking context ID
+  void UpdateTaintTrackingContextId();
+
   // Registers a v8 extension to be available on webpages. Will only
   // affect v8 contexts initialized after this call.
   static void RegisterExtensionIfNeeded(std::unique_ptr<v8::Extension>);

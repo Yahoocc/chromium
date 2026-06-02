@@ -765,6 +765,11 @@ class CORE_EXPORT Node : public EventTarget {
   // itself.
   Document& GetDocument() const { return GetTreeScope().GetDocument(); }
 
+  // Taint tracking: Log if a string value is tainted
+  void LogIfTaintedNode(const String& value,
+                        int symbolic_arg,
+                        v8::String::TaintSinkLabel label);
+
   TreeScope& GetTreeScope() const {
     DCHECK(tree_scope_);
     return *tree_scope_;

@@ -45,6 +45,7 @@
 #include "third_party/blink/renderer/platform/weborigin/security_origin.h"
 #include "third_party/blink/renderer/platform/wtf/functional.h"
 #include "third_party/blink/renderer/platform/wtf/text/wtf_string.h"
+#include "third_party/blink/renderer/platform/wtf/text/taint_tracking.h"
 
 namespace blink {
 
@@ -117,7 +118,16 @@ String StorageArea::getItem(const String& key,
     exception_state.ThrowSecurityError(StorageArea::kAccessDeniedMessage);
     return String();
   }
-  return cached_area_->GetItem(key);
+
+  String value = cached_area_->GetItem(key);
+
+  // Taint tracking: mark storage data as tainted
+  if (!value.IsNull()) {
+    tainttracking::webkit::StringTaint::SetTainted(
+        value.Impl(), tainttracking::webkit::TaintType::STORAGE);
+  }
+
+  return value;
 }
 
 NamedPropertySetterResult StorageArea::setItem(

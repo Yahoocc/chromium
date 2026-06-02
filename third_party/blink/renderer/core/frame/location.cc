@@ -29,6 +29,7 @@
 #include "third_party/blink/renderer/core/frame/location.h"
 
 #include "third_party/blink/renderer/bindings/core/v8/binding_security.h"
+#include "third_party/blink/renderer/bindings/core/v8/script_state_impl.h"
 #include "third_party/blink/renderer/bindings/core/v8/v8_binding_for_core.h"
 #include "third_party/blink/renderer/core/dom/document.h"
 #include "third_party/blink/renderer/core/frame/csp/content_security_policy.h"
@@ -47,6 +48,7 @@
 #include "third_party/blink/renderer/platform/weborigin/kurl.h"
 #include "third_party/blink/renderer/platform/weborigin/security_origin.h"
 #include "third_party/blink/renderer/platform/wtf/text/strcat.h"
+#include "third_party/blink/renderer/platform/wtf/text/taint_tracking.h"
 
 namespace blink {
 
@@ -83,7 +85,21 @@ void Location::Trace(Visitor* visitor) const {
 }
 
 inline const KURL& Location::Url() const {
-  const KURL& url = GetDocument()->Url();
+  if (!IsAttached()) {
+    return BlankUrl();
+  }
+
+  LocalFrame* frame = To<LocalDOMWindow>(dom_window_.Get())->GetFrame();
+  if (!frame) {
+    return BlankUrl();
+  }
+
+  Document* document = frame->GetDocument();
+  if (!document) {
+    return BlankUrl();
+  }
+
+  const KURL& url = document->Url();
   if (!url.IsValid()) {
     // Use "about:blank" while the page is still loading (before we have a
     // frame).
@@ -94,35 +110,59 @@ inline const KURL& Location::Url() const {
 }
 
 String Location::href() const {
-  return Url().StrippedForUseAsHref();
+  String answer = Url().StrippedForUseAsHref();
+  tainttracking::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::TaintType::URL);
+  return answer;
 }
 
 String Location::protocol() const {
-  return DOMURLUtilsReadOnly::protocol(Url());
+  String answer = DOMURLUtilsReadOnly::protocol(Url());
+  tainttracking::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::TaintType::URL_PROTOCOL);
+  return answer;
 }
 
 String Location::host() const {
-  return DOMURLUtilsReadOnly::host(Url());
+  String answer = DOMURLUtilsReadOnly::host(Url());
+  tainttracking::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::TaintType::URL_HOST);
+  return answer;
 }
 
 String Location::hostname() const {
-  return DOMURLUtilsReadOnly::hostname(Url());
+  String answer = DOMURLUtilsReadOnly::hostname(Url());
+  tainttracking::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::TaintType::URL_HOSTNAME);
+  return answer;
 }
 
 String Location::port() const {
-  return DOMURLUtilsReadOnly::port(Url());
+  String answer = DOMURLUtilsReadOnly::port(Url());
+  tainttracking::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::TaintType::URL_PORT);
+  return answer;
 }
 
 String Location::pathname() const {
-  return DOMURLUtilsReadOnly::pathname(Url());
+  String answer = DOMURLUtilsReadOnly::pathname(Url());
+  tainttracking::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::TaintType::URL_PATHNAME);
+  return answer;
 }
 
 String Location::search() const {
-  return DOMURLUtilsReadOnly::search(Url());
+  String answer = DOMURLUtilsReadOnly::search(Url());
+  tainttracking::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::TaintType::URL_SEARCH);
+  return answer;
 }
 
 String Location::origin() const {
-  return DOMURLUtilsReadOnly::origin(Url());
+  String answer = DOMURLUtilsReadOnly::origin(Url());
+  tainttracking::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::TaintType::URL_ORIGIN);
+  return answer;
 }
 
 DOMStringList* Location::ancestorOrigins() {
@@ -151,7 +191,10 @@ String Location::toString() const {
 }
 
 String Location::hash() const {
-  return DOMURLUtilsReadOnly::hash(Url());
+  String answer = DOMURLUtilsReadOnly::hash(Url());
+  tainttracking::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::TaintType::URL_HASH);
+  return answer;
 }
 
 void Location::setHref(v8::Isolate* isolate,
@@ -281,6 +324,17 @@ void Location::SetLocation(const String& url,
 
   if (!incumbent_window->GetFrame())
     return;
+
+  // Taint tracking: check if the URL being set is tainted
+  if (!url.IsNull()) {
+    LocalFrame* frame = incumbent_window->GetFrame();
+    if (frame) {
+      ScriptState* script_state = ToScriptStateForMainWorld(frame);
+      if (script_state) {
+        script_state->LogIfTainted(url, 0, v8::String::TaintSinkLabel::LOCATION_ASSIGNMENT);
+      }
+    }
+  }
 
   Document* entered_document = entered_window->document();
   if (!entered_document)

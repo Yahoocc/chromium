@@ -49,6 +49,7 @@
 #include "third_party/blink/renderer/platform/wtf/text/ascii_fast_path.h"
 #include "third_party/blink/renderer/platform/wtf/text/number_parsing_options.h"
 #include "third_party/blink/renderer/platform/wtf/text/string_hasher.h"
+#include "third_party/blink/renderer/platform/wtf/text/taint_tracking.h"
 #include "third_party/blink/renderer/platform/wtf/text/wtf_uchar.h"
 #include "third_party/blink/renderer/platform/wtf/vector.h"
 #include "third_party/blink/renderer/platform/wtf/wtf_export.h"
@@ -605,8 +606,10 @@ class WTF_EXPORT StringImpl {
         sizeof(CharType) > 1,
         "Don't use this template with 1-byte chars; use a template "
         "specialization to save time and code-size by avoiding a CheckMul.");
-    return base::CheckAdd(sizeof(StringImpl),
-                          base::CheckMul(length, sizeof(CharType)))
+    return base::CheckAdd(
+               base::CheckAdd(sizeof(StringImpl),
+                              base::CheckMul(length, sizeof(CharType))),
+               tainttracking::webkit::StringTaint::AllocationSize(length))
         .ValueOrDie();
   }
 
@@ -689,7 +692,9 @@ ALWAYS_INLINE base::span<UChar> StringImpl::Span<UChar>() const {
 template <>
 ALWAYS_INLINE size_t StringImpl::AllocationSize<LChar>(size_type length) {
   static_assert(sizeof(LChar) == 1, "sizeof(LChar) should be 1.");
-  return base::CheckAdd(sizeof(StringImpl), length).ValueOrDie();
+  return base::CheckAdd(base::CheckAdd(sizeof(StringImpl), length),
+                        tainttracking::webkit::StringTaint::AllocationSize(length))
+      .ValueOrDie();
 }
 
 // EqualToCString() can be faster than operator== because operator== creates

@@ -66,6 +66,9 @@ class LocalWindowProxy final : public WindowProxy {
   // (e.g., after setting docoument.domain).
   void UpdateSecurityOrigin(const SecurityOrigin*);
 
+  // Taint tracking: Update the taint tracking context ID
+  void UpdateTaintTrackingContextId();
+
   void SetAbortScriptExecution(
       v8::Context::AbortScriptExecutionCallback callback);
 

@@ -272,6 +272,9 @@ void HTMLAnchorElementBase::AttributeChanged(
 void HTMLAnchorElementBase::ParseAttribute(
     const AttributeModificationParams& params) {
   if (params.name == html_names::kHrefAttr) {
+    // Taint tracking: check if the anchor href is tainted
+    LogIfTaintedNode(params.new_value, 1, v8::String::TaintSinkLabel::ANCHOR_SRC_SINK);
+
     if (params.old_value == params.new_value) {
       return;
     }

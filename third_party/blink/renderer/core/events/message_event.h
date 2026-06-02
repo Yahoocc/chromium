@@ -255,6 +255,11 @@ class CORE_EXPORT MessageEvent final : public Event {
     return origin_;
   }
 
+  // Taint tracking support
+  static constexpr int64_t kNoTaintInfo = -1;
+  int64_t TaintTrackingInfo() const { return taint_tracking_unique_id_; }
+  void SetTaintTrackingInfo(int64_t info) { taint_tracking_unique_id_ = info; }
+
  private:
   enum DataType {
     kDataTypeNull,  // For "messageerror" events.
@@ -305,6 +310,9 @@ class CORE_EXPORT MessageEvent final : public Event {
   // to the agent cluster.
   bool locked_to_agent_cluster_ = false;
   uint64_t trace_id_;
+
+  // Taint tracking: unique ID for cross-origin message tracking
+  int64_t taint_tracking_unique_id_ = kNoTaintInfo;
 };
 
 }  // namespace blink

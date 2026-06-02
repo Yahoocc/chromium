@@ -163,6 +163,8 @@ component("wtf") {
     "text/string_utf8_adaptor.h",
     "text/string_view.cc",
     "text/string_view.h",
+    "text/taint_tracking.cc",
+    "text/taint_tracking.h",
     "text/text_codec.cc",
     "text/text_codec.h",
     "text/text_codec_ascii_fast_path.h",

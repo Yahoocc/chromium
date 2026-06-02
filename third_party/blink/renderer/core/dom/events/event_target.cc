@@ -1124,6 +1124,11 @@ Vector<AtomicString> EventTarget::EventTypes() {
   return d ? d->event_listener_map.EventTypes() : Vector<AtomicString>();
 }
 
+// Taint tracking: custom function by Rintaro
+Vector<AtomicString> EventTarget::internalSpecialNamespaceGetRegisteredEvents() {
+  return EventTypes();
+}
+
 void EventTarget::RemoveAllEventListeners() {
   if (auto* d = GetEventTargetData()) {
     d->event_listener_map.Clear();

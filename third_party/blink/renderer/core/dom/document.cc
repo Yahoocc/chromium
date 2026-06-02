@@ -410,6 +410,7 @@
 #include "third_party/blink/renderer/platform/wtf/text/code_point_iterator.h"
 #include "third_party/blink/renderer/platform/wtf/text/strcat.h"
 #include "third_party/blink/renderer/platform/wtf/text/string_buffer.h"
+#include "third_party/blink/renderer/platform/wtf/text/taint_tracking.h"
 #include "third_party/blink/renderer/platform/wtf/text/text_encoding_registry.h"
 #include "third_party/blink/renderer/platform/wtf/text/utf16.h"
 #include "third_party/perfetto/include/perfetto/tracing/track_event_args.h"
@@ -4763,6 +4764,9 @@ void Document::write(const String& text,
   TRACE_EVENT1("blink", "Document::write", "size_in_bytes",
                text.CharactersSizeInBytes());
 
+  // Taint tracking: check if the text is tainted
+  LogIfTaintedNode(text, 0, v8::String::TaintSinkLabel::HTML);
+
   if (!IsA<HTMLDocument>(this)) {
     exception_state.ThrowDOMException(DOMExceptionCode::kInvalidStateError,
                                       "Only HTML documents support write().");
@@ -4972,6 +4976,9 @@ void Document::SetURL(const KURL& url) {
   if (GetFrame()) {
     if (FrameScheduler* frame_scheduler = GetFrame()->GetFrameScheduler())
       frame_scheduler->TraceUrlChange(url_.GetString());
+
+    // Taint tracking: Update the taint tracking context ID when URL changes
+    GetFrame()->GetScriptController().UpdateTaintTrackingContextId();
   }
 }
 
@@ -6801,7 +6808,10 @@ String Document::cookie(ExceptionState& exception_state) const {
     CountUse(WebFeature::kFileAccessedCookies);
   }
 
-  return cookie_jar_->Cookies();
+  String answer = cookie_jar_->Cookies();
+  tainttracking::StringTaint::SetTainted(answer.Impl(),
+                                         tainttracking::TaintType::COOKIE);
+  return answer;
 }
 
 void Document::setCookie(const String& value, ExceptionState& exception_state) {
@@ -6815,7 +6825,7 @@ void Document::setCookie(const String& value, ExceptionState& exception_state) {
             network::mojom::blink::WebSandboxFlags::kOrigin)) {
       exception_state.ThrowSecurityError(
           "The document is sandboxed and lacks the 'allow-same-origin' flag.");
-    } else if (Url().ProtocolIsData()) {
+    } else if Url().ProtocolIsData()) {
       exception_state.ThrowSecurityError(
           "Cookies are disabled inside 'data:' URLs.");
     } else {
@@ -6825,6 +6835,9 @@ void Document::setCookie(const String& value, ExceptionState& exception_state) {
   } else if (dom_window_->GetSecurityOrigin()->IsLocal()) {
     UseCounter::Count(*this, WebFeature::kFileAccessedCookies);
   }
+
+  // Taint tracking: check if the cookie value is tainted
+  LogIfTaintedNode(value, 0, v8::String::TaintSinkLabel::COOKIE_SINK);
 
   cookie_jar_->SetCookie(value);
 }
@@ -6849,8 +6862,14 @@ const base::Uuid& Document::base_auction_nonce() {
 }
 
 const AtomicString& Document::referrer() const {
-  if (Loader())
-    return Loader()->GetReferrer();
+  if (Loader()) {
+    const AtomicString& answer = Loader()->GetReferrer();
+    if (!answer.IsNull()) {
+      tainttracking::StringTaint::SetTainted(
+          answer.Impl(), tainttracking::TaintType::REFERRER);
+    }
+    return answer;
+  }
   return g_null_atom;
 }
 

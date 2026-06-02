@@ -41,6 +41,7 @@
 #include "third_party/blink/renderer/platform/instrumentation/use_counter.h"
 #include "third_party/blink/renderer/platform/runtime_enabled_features.h"
 #include "third_party/blink/renderer/platform/weborigin/security_origin.h"
+#include "third_party/blink/renderer/platform/wtf/text/taint_tracking.h"
 
 namespace blink {
 
@@ -403,6 +404,19 @@ ScriptValue MessageEvent::data(ScriptState* script_state) {
       break;
   }
 
+  // Taint tracking: mark message data as tainted
+  if (value->IsString()) {
+    v8::Local<v8::String> str = value.As<v8::String>();
+
+    // Generate unique ID if not already set
+    if (taint_tracking_unique_id_ == kNoTaintInfo) {
+      taint_tracking_unique_id_ = v8::String::NewUniqueId(isolate);
+    }
+
+    v8::String::SetTaint(str, isolate, v8::String::MESSAGE);
+    v8::String::SetTaintInfo(str, taint_tracking_unique_id_);
+  }
+
   return ScriptValue(isolate, value);
 }
 
@@ -428,7 +442,23 @@ String MessageEvent::originForBindings() {
   } else if (origin_->IsLocal()) {
     return "null";
   }
-  return origin_->ToString();
+
+  String origin_string = origin_->ToString();
+
+  // Taint tracking: mark message origin as tainted
+  if (!origin_string.IsNull()) {
+    // Generate unique ID if not already set
+    if (taint_tracking_unique_id_ == kNoTaintInfo) {
+      taint_tracking_unique_id_ = v8::String::NewUniqueId(v8::Isolate::GetCurrent());
+    }
+
+    tainttracking::webkit::StringTaint::SetTainted(
+        origin_string.Impl(), tainttracking::webkit::TaintType::MESSAGE_ORIGIN);
+    tainttracking::webkit::StringTaint::SetTaintInfo(
+        origin_string.Impl(), taint_tracking_unique_id_);
+  }
+
+  return origin_string;
 }
 
 const AtomicString& MessageEvent::InterfaceName() const {

@@ -175,6 +175,14 @@ int DOMTimer::setTimeout(ScriptState* script_state,
   if (!IsAllowed(context, false, g_empty_string)) {
     return 0;
   }
+
+  // Taint tracking: check if handler is a tainted string
+  v8::Local<v8::Value> handler_value = handler->CallbackObject();
+  if (handler_value->IsString()) {
+    v8::Local<v8::String> handler_string = handler_value.As<v8::String>();
+    handler_string->LogIfTainted(v8::String::TaintSinkLabel::JAVASCRIPT_SET_TIMEOUT, 0);
+  }
+
   auto* action = MakeGarbageCollected<ScheduledAction>(script_state, context,
                                                        handler, arguments);
   return MakeGarbageCollected<DOMTimer>(context, action,
@@ -212,6 +220,15 @@ int DOMTimer::setTimeout(ScriptState* script_state,
   if (handler.empty()) {
     return 0;
   }
+
+  // Taint tracking: check if the handler string is tainted
+  if (script_state->ContextIsValid()) {
+    ScriptState::Scope scope(script_state);
+    v8::Isolate* isolate = script_state->GetIsolate();
+    v8::Local<v8::String> handler_v8 = V8String(isolate, handler);
+    handler_v8->LogIfTainted(v8::String::TaintSinkLabel::JAVASCRIPT_SET_TIMEOUT, 0);
+  }
+
   auto* action =
       MakeGarbageCollected<ScheduledAction>(script_state, context, handler);
   return MakeGarbageCollected<DOMTimer>(context, action,
@@ -227,6 +244,14 @@ int DOMTimer::setInterval(ScriptState* script_state,
   if (!IsAllowed(context, false, g_empty_string)) {
     return 0;
   }
+
+  // Taint tracking: check if handler is a tainted string
+  v8::Local<v8::Value> handler_value = handler->CallbackObject();
+  if (handler_value->IsString()) {
+    v8::Local<v8::String> handler_string = handler_value.As<v8::String>();
+    handler_string->LogIfTainted(v8::String::TaintSinkLabel::JAVASCRIPT_SET_INTERVAL, 0);
+  }
+
   auto* action = MakeGarbageCollected<ScheduledAction>(script_state, context,
                                                        handler, arguments);
   return MakeGarbageCollected<DOMTimer>(context, action,
@@ -259,6 +284,15 @@ int DOMTimer::setInterval(ScriptState* script_state,
   if (handler.empty()) {
     return 0;
   }
+
+  // Taint tracking: check if the handler string is tainted
+  if (script_state->ContextIsValid()) {
+    ScriptState::Scope scope(script_state);
+    v8::Isolate* isolate = script_state->GetIsolate();
+    v8::Local<v8::String> handler_v8 = V8String(isolate, handler);
+    handler_v8->LogIfTainted(v8::String::TaintSinkLabel::JAVASCRIPT_SET_INTERVAL, 0);
+  }
+
   auto* action =
       MakeGarbageCollected<ScheduledAction>(script_state, context, handler);
   return MakeGarbageCollected<DOMTimer>(context, action,

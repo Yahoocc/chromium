@@ -3778,6 +3778,18 @@ void Element::ProcessElementRenderBlocking(const AtomicString& id_or_name) {
 
 DISABLE_CFI_PERF
 void Element::AttributeChanged(const AttributeModificationParams& params) {
+  // Taint tracking: check for event handlers and style attributes
+  const QualifiedName& name = params.name;
+  if (name.LocalName().StartsWith("on")) {
+    // Event handler attribute (onclick, onload, etc.)
+    LogIfTaintedNode(params.new_value, 1,
+                     v8::String::TaintSinkLabel::JAVASCRIPT_EVENT_HANDLER_ATTRIBUTE);
+  } else if (name == html_names::kStyleAttr) {
+    // Style attribute
+    LogIfTaintedNode(params.new_value, 1,
+                     v8::String::TaintSinkLabel::CSS_STYLE_ATTRIBUTE);
+  }
+
   ParseAttribute(params);
 
   GetDocument().IncDOMTreeVersion();
@@ -9306,6 +9318,9 @@ void Element::SetInnerHTMLInternal(
 
 void Element::SetInnerHTMLWithoutTrustedTypes(const String& html,
                                               ExceptionState& exception_state) {
+  // Taint tracking: check if the HTML is tainted
+  LogIfTaintedNode(html, 0, v8::String::TaintSinkLabel::HTML);
+
   SetInnerHTMLInternal(
       html, FragmentParserConfig::ParseDeclarativeShadowRoots::kDontParse,
       FragmentParserConfig::ForceHtml::kDontForce, Sanitizer::Mode::kUnsafe,
@@ -9327,6 +9342,10 @@ void Element::SetOuterHTMLInternal(const String& html,
   if (exception_state.HadException()) {
     return;
   }
+
+  // Taint tracking: check if the HTML is tainted
+  LogIfTaintedNode(html, 0, v8::String::TaintSinkLabel::HTML);
+
   Node* p = parentNode();
   if (!p) {
     exception_state.ThrowDOMException(
@@ -9601,6 +9620,10 @@ void Element::InsertAdjacentHTMLInternal(const String& where,
   if (exception_state.HadException()) {
     return;
   }
+
+  // Taint tracking: check if the HTML is tainted
+  LogIfTaintedNode(html, 1, v8::String::TaintSinkLabel::HTML);
+
   Node* context_node = ContextNodeForInsertion(where, this, exception_state);
   if (!context_node) {
     return;

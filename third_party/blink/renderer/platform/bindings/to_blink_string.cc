@@ -8,10 +8,33 @@
 
 #include "third_party/blink/renderer/platform/bindings/string_resource.h"
 #include "third_party/blink/renderer/platform/bindings/v8_binding.h"
+#include "third_party/blink/renderer/platform/wtf/text/taint_tracking.h"
+
+// Verify that TaintData sizes match between V8 and Blink
+static_assert(sizeof(tainttracking::webkit::TaintData) ==
+              sizeof(v8::String::TaintData),
+              "Taint tracking data size must be equal");
+
+// Verify that TaintType enums match between V8 and Blink
+#define TAINT_ASSERT_EQUAL(n) \
+  static_assert( \
+      static_cast<uint8_t>(v8::String::TaintType::n) == \
+      static_cast<uint8_t>(tainttracking::webkit::TaintType::n), \
+      "Taint tracking enum must be equal. ");
+
+TAINT_TRACKING_TAINT_TYPE_FOR(TAINT_ASSERT_EQUAL)
+#undef TAINT_ASSERT_EQUAL
 
 namespace blink {
 
 namespace {
+
+// Helper function to write taint data from V8 string to Blink StringImpl
+void WriteTaintHelper(v8::Local<v8::String> v8_string, StringImpl* buffer, int length) {
+    DCHECK_EQ(v8_string->Length(), length);
+    DCHECK_EQ(buffer->length(), static_cast<unsigned>(length));
+    v8_string->WriteTaint(tainttracking::webkit::StringTaint::FromString(buffer), 0, length);
+}
 
 template <class StringClass>
 struct StringTraits {
@@ -74,6 +97,7 @@ String StringTraits<String>::FromV8String(v8::Isolate* isolate,
   base::span<typename V8StringTrait::CharType> buffer;
   String result = String::CreateUninitialized(length, buffer);
   V8StringTrait::Write(isolate, v8_string, buffer);
+  WriteTaintHelper(v8_string, result.Impl(), length);
   return result;
 }
 
@@ -89,11 +113,14 @@ AtomicString StringTraits<AtomicString>::FromV8String(
     typename V8StringTrait::CharType inline_buffer[kInlineBufferSize];
     base::span<typename V8StringTrait::CharType> buffer_span(inline_buffer);
     V8StringTrait::Write(isolate, v8_string, buffer_span.first(length));
-    return AtomicString(buffer_span.first(length));
+    AtomicString answer(buffer_span.first(length));
+    WriteTaintHelper(v8_string, answer.Impl(), length);
+    return answer;
   }
   base::span<typename V8StringTrait::CharType> buffer;
   String string = String::CreateUninitialized(length, buffer);
   V8StringTrait::Write(isolate, v8_string, buffer);
+  WriteTaintHelper(v8_string, string.Impl(), length);
   return AtomicString(string);
 }
 

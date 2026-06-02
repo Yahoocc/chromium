@@ -52,6 +52,7 @@
 #include "third_party/blink/renderer/core/frame/local_dom_window.h"
 #include "third_party/blink/renderer/core/frame/local_frame.h"
 #include "third_party/blink/renderer/core/frame/local_frame_client.h"
+#include "third_party/blink/renderer/core/frame/location.h"
 #include "third_party/blink/renderer/core/html/document_name_collection.h"
 #include "third_party/blink/renderer/core/html/html_document.h"
 #include "third_party/blink/renderer/core/html/html_iframe_element.h"
@@ -458,6 +459,9 @@ void LocalWindowProxy::UpdateDocumentForMainWorld() {
   UpdateActivityLogger();
   UpdateDocumentProperty();
   UpdateSecurityOrigin(GetFrame()->DomWindow()->GetSecurityOrigin());
+
+  // Taint tracking: Update the taint tracking context ID
+  UpdateTaintTrackingContextId();
 }
 
 namespace {
@@ -600,6 +604,27 @@ void LocalWindowProxy::UpdateSecurityOrigin(const SecurityOrigin* origin) {
     return;
 
   SetSecurityToken(origin);
+}
+
+void LocalWindowProxy::UpdateTaintTrackingContextId() {
+  // Taint tracking: Update the taint tracking context ID for the window
+  if (lifecycle_ == Lifecycle::kContextIsUninitialized ||
+      lifecycle_ == Lifecycle::kGlobalObjectIsDetached)
+    return;
+
+  if (!script_state_)
+    return;
+
+  v8::HandleScope scope(GetIsolate());
+  v8::Local<v8::Context> context = script_state_->GetContext();
+  if (context.IsEmpty())
+    return;
+
+  LocalFrame* frame = GetFrame();
+  if (frame && frame->DomWindow() && frame->DomWindow()->location()) {
+    context->SetTaintTrackingContextId(
+        V8String(GetIsolate(), frame->DomWindow()->location()->href()));
+  }
 }
 
 void LocalWindowProxy::SetAbortScriptExecution(

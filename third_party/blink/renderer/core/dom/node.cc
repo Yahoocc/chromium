@@ -29,6 +29,8 @@
 #include <algorithm>
 
 #include "third_party/blink/public/mojom/input/focus_type.mojom-blink.h"
+#include "third_party/blink/renderer/bindings/core/v8/script_state_impl.h"
+#include "third_party/blink/renderer/bindings/core/v8/v8_binding_for_core.h"
 #include "third_party/blink/renderer/bindings/core/v8/v8_get_root_node_options.h"
 #include "third_party/blink/renderer/bindings/core/v8/v8_union_node_string_trustedscript.h"
 #include "third_party/blink/renderer/bindings/core/v8/v8_union_string_trustedscript.h"
@@ -4003,6 +4005,28 @@ void Node::Trace(Visitor* visitor) const {
   visitor->Trace(layout_object_);
   visitor->Trace(data_);
   EventTarget::Trace(visitor);
+}
+
+void Node::LogIfTaintedNode(const String& value,
+                            int symbolic_arg,
+                            v8::String::TaintSinkLabel label) {
+  if (value.IsNull()) {
+    return;
+  }
+
+  LocalFrame* frame = GetDocument().GetFrame();
+  if (!frame) {
+    return;
+  }
+
+  ScriptState* script_state = ToScriptStateForMainWorld(frame);
+  if (!script_state) {
+    return;
+  }
+
+  // Cast to ScriptStateImpl to access LogIfTainted method
+  ScriptStateImpl* script_state_impl = static_cast<ScriptStateImpl*>(script_state);
+  script_state_impl->LogIfTainted(value, symbolic_arg, label);
 }
 
 }  // namespace blink

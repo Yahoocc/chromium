@@ -88,6 +88,9 @@ void HTMLScriptElement::ChildrenChanged(const ChildrenChange& change) {
   HTMLElement::ChildrenChanged(change);
   loader_->ChildrenChanged(change);
 
+  // Taint tracking: check if script text content is tainted when children change
+  LogIfTaintedNode(TextFromChildren(), 0, v8::String::TaintSinkLabel::JAVASCRIPT);
+
   // We'll record whether the script element children were ever changed by
   // the API (as opposed to the parser).
   children_changed_by_api_ |= !change.ByParser();
@@ -96,6 +99,10 @@ void HTMLScriptElement::ChildrenChanged(const ChildrenChange& change) {
 void HTMLScriptElement::ParseAttribute(
     const AttributeModificationParams& params) {
   if (params.name == html_names::kSrcAttr) {
+    // Taint tracking: check if the script src is tainted
+    LogIfTaintedNode(params.new_value, 1,
+                     v8::String::TaintSinkLabel::SCRIPT_SRC_URL_SINK);
+
     loader_->HandleSourceAttribute(params.new_value);
     LogUpdateAttributeIfIsolatedWorldAndInDocument("script", params);
   } else if (params.name == html_names::kAsyncAttr) {
@@ -237,6 +244,9 @@ void HTMLScriptElement::setScriptTextContentForBinding(
 }
 
 void HTMLScriptElement::setTextContent(const String& string) {
+  // Taint tracking: check if the script text is tainted
+  LogIfTaintedNode(string, 0, v8::String::TaintSinkLabel::JAVASCRIPT);
+
   // https://w3c.github.io/trusted-types/dist/spec/#setting-slot-values
   // "On setting [.. textContent ..]: Set [[ScriptText]] internal slot value to
   // the stringified attribute value. Perform the usual attribute setter steps."

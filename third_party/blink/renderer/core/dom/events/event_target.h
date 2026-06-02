@@ -211,6 +211,9 @@ class CORE_EXPORT EventTarget : public ScriptWrappable {
 
   Vector<AtomicString> EventTypes();
 
+  // Taint tracking: custom function to get registered event types
+  Vector<AtomicString> internalSpecialNamespaceGetRegisteredEvents();
+
   DispatchEventResult FireEventListeners(Event&);
 
   static DispatchEventResult GetDispatchEventResult(const Event&);

@@ -120,6 +120,12 @@ void ScriptController::UpdateSecurityOrigin(
   window_proxy_manager_->UpdateSecurityOrigin(security_origin);
 }
 
+void ScriptController::UpdateTaintTrackingContextId() {
+  // Taint tracking: Update the taint tracking context ID
+  window_proxy_manager_->MainWorldProxyMaybeUninitialized()
+      ->UpdateTaintTrackingContextId();
+}
+
 TextPosition ScriptController::EventHandlerPosition() const {
   ScriptableDocumentParser* parser =
       window_->document()->GetScriptableDocumentParser();

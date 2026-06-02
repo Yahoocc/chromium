@@ -386,6 +386,9 @@ void HTMLIFrameElement::ParseAttribute(
     }
 
     if (name == html_names::kSrcAttr) {
+      // Taint tracking: check if the iframe src is tainted
+      LogIfTaintedNode(value, 1, v8::String::TaintSinkLabel::IFRAME_SRC_SINK);
+
       LogUpdateAttributeIfIsolatedWorldAndInDocument("iframe", params);
       if (src_ != value) {
         src_ = value;

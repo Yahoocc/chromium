@@ -35,6 +35,7 @@
 #include "third_party/blink/renderer/core/page/page.h"
 #include "third_party/blink/renderer/platform/instrumentation/use_counter.h"
 #include "third_party/blink/renderer/platform/wtf/text/string_builder.h"
+#include "third_party/blink/renderer/platform/wtf/text/taint_tracking.h"
 
 namespace blink {
 
@@ -113,7 +114,14 @@ void FrameTree::SetName(const AtomicString& name,
     // TODO(shuuran): remove this once we have gathered the data
     cross_site_cross_browsing_context_group_set_nulled_name_ = false;
   }
+
   name_ = name;
+
+  // Taint tracking: mark window.name as tainted
+  if (!name_.IsNull()) {
+    tainttracking::webkit::StringTaint::SetTainted(
+        name_.Impl(), tainttracking::webkit::TaintType::WINDOWNAME);
+  }
 }
 
 DISABLE_CFI_PERF

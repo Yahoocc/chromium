@@ -6,6 +6,7 @@
 #define THIRD_PARTY_BLINK_RENDERER_BINDINGS_CORE_V8_SCRIPT_STATE_IMPL_H_
 
 #include "third_party/blink/renderer/platform/bindings/script_state.h"
+#include "v8/include/v8.h"
 
 namespace blink {
 
@@ -30,6 +31,9 @@ class ScriptStateImpl final : public ScriptState {
   ExecutionContext* GetExecutionContext() const {
     return execution_context_.Get();
   }
+
+  // Taint tracking support
+  int64_t LogIfTainted(const String& str, int argument_index, v8::String::TaintSinkLabel label);
 
  private:
   static ScriptState* Create(v8::Local<v8::Context>,

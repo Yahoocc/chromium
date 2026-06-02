@@ -12,13 +12,14 @@
 #include "third_party/blink/renderer/platform/platform_export.h"
 #include "third_party/blink/renderer/platform/wtf/allocator/allocator.h"
 #include "third_party/blink/renderer/platform/wtf/text/atomic_string.h"
+#include "third_party/blink/renderer/platform/wtf/text/taint_tracking.h"
 #include "v8/include/v8.h"
 
 namespace blink {
 
 // StringResource is a helper class for V8ExternalString. It is used
 // to manage the life-cycle of the underlying buffer of the external string.
-class StringResourceBase {
+class StringResourceBase : public virtual v8::String::TaintTrackingBase {
   USING_FAST_MALLOC(StringResourceBase);
 
  public:
@@ -90,7 +91,7 @@ class StringResourceBase {
     }
   }
 
-  virtual ~StringResourceBase() = default;
+  ~StringResourceBase() override = default;
 
   String GetWTFString() {
     if (!parkable_string_.IsNull()) {
@@ -117,6 +118,8 @@ class StringResourceBase {
     }
     return atomic_string_;
   }
+
+  virtual uint8_t* GetTaintChars() const = 0;
 
  protected:
   StringImpl* GetStringImpl() const {
@@ -180,6 +183,15 @@ class StringResource16Base : public StringResourceBase,
   StringResource16Base(const StringResource16Base&) = delete;
   StringResource16Base& operator=(const StringResource16Base&) = delete;
 
+  // Override TaintTrackingBase methods
+  v8::String::TaintData* GetTaintInfo() const override {
+    return GetTaintChars();
+  }
+
+  v8::String::TaintData* InitTaintChars(size_t length) override {
+    return GetTaintChars();
+  }
+
   void Unaccount(v8::Isolate* isolate) override {
     StringResourceBase::Unaccount(isolate);
   }
@@ -205,6 +217,10 @@ class StringResource16 final : public StringResource16Base {
   StringResource16(const StringResource16&) = delete;
   StringResource16& operator=(const StringResource16&) = delete;
 
+  uint8_t* GetTaintChars() const override {
+    return tainttracking::webkit::StringTaint::FromString(GetStringImpl());
+  }
+
   size_t length() const override { return GetStringImpl()->length(); }
   const uint16_t* data() const override {
     return GetStringImpl()->SpanUint16().data();
@@ -218,6 +234,10 @@ class ParkableStringResource16 final : public StringResource16Base {
 
   ParkableStringResource16(const ParkableStringResource16&) = delete;
   ParkableStringResource16& operator=(const ParkableStringResource16&) = delete;
+
+  uint8_t* GetTaintChars() const override {
+    return tainttracking::webkit::StringTaint::FromString(GetParkableString().ToString().Impl());
+  }
 
   bool IsCacheable() const override {
     return !GetParkableString().may_be_parked();
@@ -250,6 +270,15 @@ class StringResource8Base : public StringResourceBase,
   StringResource8Base(const StringResource8Base&) = delete;
   StringResource8Base& operator=(const StringResource8Base&) = delete;
 
+  // Override TaintTrackingBase methods
+  v8::String::TaintData* GetTaintInfo() const override {
+    return GetTaintChars();
+  }
+
+  v8::String::TaintData* InitTaintChars(size_t length) override {
+    return GetTaintChars();
+  }
+
   void Unaccount(v8::Isolate* isolate) override {
     StringResourceBase::Unaccount(isolate);
   }
@@ -275,6 +304,10 @@ class StringResource8 final : public StringResource8Base {
   StringResource8(const StringResource8&) = delete;
   StringResource8& operator=(const StringResource8&) = delete;
 
+  uint8_t* GetTaintChars() const override {
+    return tainttracking::webkit::StringTaint::FromString(GetStringImpl());
+  }
+
   size_t length() const override { return GetStringImpl()->length(); }
   const char* data() const override {
     return base::as_chars(GetStringImpl()->Span8()).data();
@@ -288,6 +321,10 @@ class ParkableStringResource8 final : public StringResource8Base {
 
   ParkableStringResource8(const ParkableStringResource8&) = delete;
   ParkableStringResource8& operator=(const ParkableStringResource8&) = delete;
+
+  uint8_t* GetTaintChars() const override {
+    return tainttracking::webkit::StringTaint::FromString(GetParkableString().ToString().Impl());
+  }
 
   bool IsCacheable() const override {
     return !GetParkableString().may_be_parked();
