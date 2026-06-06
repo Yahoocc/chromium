@@ -111,57 +111,57 @@ inline const KURL& Location::Url() const {
 
 String Location::href() const {
   String answer = Url().StrippedForUseAsHref();
-  tainttracking::StringTaint::SetTainted(
-      answer.Impl(), tainttracking::TaintType::URL);
+  tainttracking::webkit::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::webkit::TaintType::URL);
   return answer;
 }
 
 String Location::protocol() const {
   String answer = DOMURLUtilsReadOnly::protocol(Url());
-  tainttracking::StringTaint::SetTainted(
-      answer.Impl(), tainttracking::TaintType::URL_PROTOCOL);
+  tainttracking::webkit::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::webkit::TaintType::URL_PROTOCOL);
   return answer;
 }
 
 String Location::host() const {
   String answer = DOMURLUtilsReadOnly::host(Url());
-  tainttracking::StringTaint::SetTainted(
-      answer.Impl(), tainttracking::TaintType::URL_HOST);
+  tainttracking::webkit::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::webkit::TaintType::URL_HOST);
   return answer;
 }
 
 String Location::hostname() const {
   String answer = DOMURLUtilsReadOnly::hostname(Url());
-  tainttracking::StringTaint::SetTainted(
-      answer.Impl(), tainttracking::TaintType::URL_HOSTNAME);
+  tainttracking::webkit::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::webkit::TaintType::URL_HOSTNAME);
   return answer;
 }
 
 String Location::port() const {
   String answer = DOMURLUtilsReadOnly::port(Url());
-  tainttracking::StringTaint::SetTainted(
-      answer.Impl(), tainttracking::TaintType::URL_PORT);
+  tainttracking::webkit::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::webkit::TaintType::URL_PORT);
   return answer;
 }
 
 String Location::pathname() const {
   String answer = DOMURLUtilsReadOnly::pathname(Url());
-  tainttracking::StringTaint::SetTainted(
-      answer.Impl(), tainttracking::TaintType::URL_PATHNAME);
+  tainttracking::webkit::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::webkit::TaintType::URL_PATHNAME);
   return answer;
 }
 
 String Location::search() const {
   String answer = DOMURLUtilsReadOnly::search(Url());
-  tainttracking::StringTaint::SetTainted(
-      answer.Impl(), tainttracking::TaintType::URL_SEARCH);
+  tainttracking::webkit::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::webkit::TaintType::URL_SEARCH);
   return answer;
 }
 
 String Location::origin() const {
   String answer = DOMURLUtilsReadOnly::origin(Url());
-  tainttracking::StringTaint::SetTainted(
-      answer.Impl(), tainttracking::TaintType::URL_ORIGIN);
+  tainttracking::webkit::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::webkit::TaintType::URL_ORIGIN);
   return answer;
 }
 
@@ -192,8 +192,8 @@ String Location::toString() const {
 
 String Location::hash() const {
   String answer = DOMURLUtilsReadOnly::hash(Url());
-  tainttracking::StringTaint::SetTainted(
-      answer.Impl(), tainttracking::TaintType::URL_HASH);
+  tainttracking::webkit::StringTaint::SetTainted(
+      answer.Impl(), tainttracking::webkit::TaintType::URL_HASH);
   return answer;
 }
 
@@ -331,7 +331,8 @@ void Location::SetLocation(const String& url,
     if (frame) {
       ScriptState* script_state = ToScriptStateForMainWorld(frame);
       if (script_state) {
-        script_state->LogIfTainted(url, 0, v8::String::TaintSinkLabel::LOCATION_ASSIGNMENT);
+        // Note: LogIfTainted is defined in script_state_impl.h
+        static_cast<ScriptStateImpl*>(script_state)->LogIfTainted(url, 0, v8::String::TaintSinkLabel::LOCATION_ASSIGN);
       }
     }
   }

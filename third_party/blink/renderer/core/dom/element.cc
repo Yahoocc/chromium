@@ -3780,14 +3780,14 @@ DISABLE_CFI_PERF
 void Element::AttributeChanged(const AttributeModificationParams& params) {
   // Taint tracking: check for event handlers and style attributes
   const QualifiedName& name = params.name;
-  if (name.LocalName().StartsWith("on")) {
+  if (name.LocalName().starts_with("on")) {
     // Event handler attribute (onclick, onload, etc.)
     LogIfTaintedNode(params.new_value, 1,
-                     v8::String::TaintSinkLabel::JAVASCRIPT_EVENT_HANDLER_ATTRIBUTE);
+                     v8::String::TaintSinkLabel::ONEVENT);
   } else if (name == html_names::kStyleAttr) {
     // Style attribute
     LogIfTaintedNode(params.new_value, 1,
-                     v8::String::TaintSinkLabel::CSS_STYLE_ATTRIBUTE);
+                     v8::String::TaintSinkLabel::HTML);
   }
 
   ParseAttribute(params);
@@ -3795,8 +3795,6 @@ void Element::AttributeChanged(const AttributeModificationParams& params) {
   GetDocument().IncDOMTreeVersion();
   GetDocument().NotifyAttributeChanged(*this, params.name, params.old_value,
                                        params.new_value);
-
-  const QualifiedName& name = params.name;
   if (name == html_names::kIdAttr) {
     AtomicString lowercase_id;
     if (GetDocument().InQuirksMode() &&

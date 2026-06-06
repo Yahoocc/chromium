@@ -4978,7 +4978,9 @@ void Document::SetURL(const KURL& url) {
       frame_scheduler->TraceUrlChange(url_.GetString());
 
     // Taint tracking: Update the taint tracking context ID when URL changes
-    GetFrame()->GetScriptController().UpdateTaintTrackingContextId();
+    if (dom_window_) {
+      dom_window_->GetScriptController().UpdateTaintTrackingContextId();
+    }
   }
 }
 
@@ -6809,8 +6811,8 @@ String Document::cookie(ExceptionState& exception_state) const {
   }
 
   String answer = cookie_jar_->Cookies();
-  tainttracking::StringTaint::SetTainted(answer.Impl(),
-                                         tainttracking::TaintType::COOKIE);
+  tainttracking::webkit::StringTaint::SetTainted(answer.Impl(),
+                                         tainttracking::webkit::TaintType::COOKIE);
   return answer;
 }
 
@@ -6825,7 +6827,7 @@ void Document::setCookie(const String& value, ExceptionState& exception_state) {
             network::mojom::blink::WebSandboxFlags::kOrigin)) {
       exception_state.ThrowSecurityError(
           "The document is sandboxed and lacks the 'allow-same-origin' flag.");
-    } else if Url().ProtocolIsData()) {
+    } else if (Url().ProtocolIsData()) {
       exception_state.ThrowSecurityError(
           "Cookies are disabled inside 'data:' URLs.");
     } else {
@@ -6837,7 +6839,7 @@ void Document::setCookie(const String& value, ExceptionState& exception_state) {
   }
 
   // Taint tracking: check if the cookie value is tainted
-  LogIfTaintedNode(value, 0, v8::String::TaintSinkLabel::COOKIE_SINK);
+  LogIfTaintedNode(value, 0, v8::String::TaintSinkLabel::URL_SINK);
 
   cookie_jar_->SetCookie(value);
 }
@@ -6865,8 +6867,8 @@ const AtomicString& Document::referrer() const {
   if (Loader()) {
     const AtomicString& answer = Loader()->GetReferrer();
     if (!answer.IsNull()) {
-      tainttracking::StringTaint::SetTainted(
-          answer.Impl(), tainttracking::TaintType::REFERRER);
+      tainttracking::webkit::StringTaint::SetTainted(
+          answer.Impl(), tainttracking::webkit::TaintType::REFERRER);
     }
     return answer;
   }

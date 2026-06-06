@@ -34,6 +34,7 @@
 #include "base/time/time.h"
 #include "third_party/blink/public/common/features.h"
 #include "third_party/blink/public/platform/task_type.h"
+#include "third_party/blink/renderer/bindings/core/v8/v8_function.h"
 #include "third_party/blink/renderer/bindings/core/v8/v8_union_string_trustedhtml.h"
 #include "third_party/blink/renderer/core/core_probes_inl.h"
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
@@ -180,7 +181,7 @@ int DOMTimer::setTimeout(ScriptState* script_state,
   v8::Local<v8::Value> handler_value = handler->CallbackObject();
   if (handler_value->IsString()) {
     v8::Local<v8::String> handler_string = handler_value.As<v8::String>();
-    handler_string->LogIfTainted(v8::String::TaintSinkLabel::JAVASCRIPT_SET_TIMEOUT, 0);
+    handler_string->LogIfTainted(v8::String::TaintSinkLabel::SETTIMEOUT, 0);
   }
 
   auto* action = MakeGarbageCollected<ScheduledAction>(script_state, context,
@@ -226,7 +227,7 @@ int DOMTimer::setTimeout(ScriptState* script_state,
     ScriptState::Scope scope(script_state);
     v8::Isolate* isolate = script_state->GetIsolate();
     v8::Local<v8::String> handler_v8 = V8String(isolate, handler);
-    handler_v8->LogIfTainted(v8::String::TaintSinkLabel::JAVASCRIPT_SET_TIMEOUT, 0);
+    handler_v8->LogIfTainted(v8::String::TaintSinkLabel::SETTIMEOUT, 0);
   }
 
   auto* action =
@@ -249,7 +250,7 @@ int DOMTimer::setInterval(ScriptState* script_state,
   v8::Local<v8::Value> handler_value = handler->CallbackObject();
   if (handler_value->IsString()) {
     v8::Local<v8::String> handler_string = handler_value.As<v8::String>();
-    handler_string->LogIfTainted(v8::String::TaintSinkLabel::JAVASCRIPT_SET_INTERVAL, 0);
+    handler_string->LogIfTainted(v8::String::TaintSinkLabel::SETINTERVAL, 0);
   }
 
   auto* action = MakeGarbageCollected<ScheduledAction>(script_state, context,
@@ -290,7 +291,7 @@ int DOMTimer::setInterval(ScriptState* script_state,
     ScriptState::Scope scope(script_state);
     v8::Isolate* isolate = script_state->GetIsolate();
     v8::Local<v8::String> handler_v8 = V8String(isolate, handler);
-    handler_v8->LogIfTainted(v8::String::TaintSinkLabel::JAVASCRIPT_SET_INTERVAL, 0);
+    handler_v8->LogIfTainted(v8::String::TaintSinkLabel::SETINTERVAL, 0);
   }
 
   auto* action =
