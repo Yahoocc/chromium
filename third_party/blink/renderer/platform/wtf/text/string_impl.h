@@ -720,7 +720,8 @@ ALWAYS_INLINE bool StringImpl::ContainsOnlyAsciiOrEmpty() const {
 }
 
 ALWAYS_INLINE size_t StringImpl::GetAllocatedSize() const {
-  const size_t size = CharactersSizeInBytes() + sizeof(StringImpl);
+  const size_t size = CharactersSizeInBytes() + sizeof(StringImpl) +
+                      tainttracking::webkit::StringTaint::AllocationSize(length());
   DCHECK(Is8Bit() ? size == AllocationSize<LChar>(length())
                   : size == AllocationSize<UChar>(length()));
   return size;
