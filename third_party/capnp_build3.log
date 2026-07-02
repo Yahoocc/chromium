@@ -1,0 +1,8 @@
+ninja: Entering directory `out/Default'
+[0/1] Regenerating ninja files
+ERROR at //v8/BUILD.gn:5855:5: Unable to load "/home/wisdom/Desktop/chromium_local/chromium/src/third_party/capnproto/BUILD.gn".
+    "//third_party/capnproto:capnp",
+    ^------------------------------
+FAILED: [code=1] build.ninja.stamp 
+../../../buildtools/linux64/gn --root=../../.. -q --regeneration gen .
+ninja: error: rebuilding 'build.ninja': subcommand failed

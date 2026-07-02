@@ -1,0 +1,42 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6fff640 (LWP 3338341)]
+[New Thread 0x7ffff67fe640 (LWP 3338342)]
+[New Thread 0x7ffff5ffd640 (LWP 3338343)]
+[New Thread 0x7ffff57fc640 (LWP 3338344)]
+[New Thread 0x7ffff4ffb640 (LWP 3338345)]
+[New Thread 0x7ffff47fa640 (LWP 3338346)]
+[New Thread 0x7ffff3ff9640 (LWP 3338347)]
+[New Thread 0x7ffff37f8640 (LWP 3338348)]
+[New Thread 0x7ffff2ff7640 (LWP 3338349)]
+[New Thread 0x7ffff27f6640 (LWP 3338350)]
+[New Thread 0x7ffff1ff5640 (LWP 3338351)]
+[New Thread 0x7ffff17f4640 (LWP 3338352)]
+[New Thread 0x7ffff0ff3640 (LWP 3338353)]
+[New Thread 0x7ffff07f2640 (LWP 3338354)]
+[New Thread 0x7fffefff1640 (LWP 3338355)]
+[New Thread 0x7fffef7f0640 (LWP 3338356)]
+
+Thread 1 "mksnapshot" received signal SIGSEGV, Segmentation fault.
+__memset_avx512_unaligned_erms () at ../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S:238
+238	../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S: No such file or directory.
+#0  __memset_avx512_unaligned_erms () at ../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S:238
+#1  0x00005555561acf3d in NewRawStringWithMap<v8::internal::SeqOneByteString> () at ../../v8/src/heap/factory-base.cc:871
+#2  0x0000555556791ed2 in IncrementalStringBuilder () at ../../v8/src/strings/string-builder.cc:266
+#3  0x0000555556588b31 in ToFunctionName () at ../../v8/src/objects/objects.cc:4198
+#4  0x000055555631a4cc in SimpleInstallGetterSetter () at ../../v8/src/init/bootstrapper.cc:662
+#5  0x000055555630e085 in InitializeGlobal () at ../../v8/src/init/bootstrapper.cc:2275
+#6  0x0000555556323329 in Genesis () at ../../v8/src/init/bootstrapper.cc:7165
+#7  0x0000555556308e1b in CreateEnvironment () at ../../v8/src/init/bootstrapper.cc:363
+#8  0x0000555555f60812 in Invoke () at ../../v8/src/api/api.cc:6644
+#9  CreateEnvironment<v8::internal::NativeContext> () at ../../v8/src/api/api.cc:6754
+#10 NewContext () at ../../v8/src/api/api.cc:6795
+#11 0x0000555555f610f5 in New () at ../../v8/src/api/api.cc:6810
+#12 0x0000555556785ae7 in CreateSnapshotDataBlobInternal () at ../../v8/src/snapshot/snapshot.cc:787
+#13 0x0000555555f421ee in CreateSnapshotDataBlob () at ../../v8/src/snapshot/mksnapshot.cc:164
+#14 main () at ../../v8/src/snapshot/mksnapshot.cc:305
+A debugging session is active.
+
+	Inferior 1 [process 3338122] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]

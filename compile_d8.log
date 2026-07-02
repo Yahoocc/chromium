@@ -1,0 +1,4 @@
+.....
+2m50.41s Build Failure: 2486 done, 0 failed, 2094 remaining - 14.59/s
+ interrupt by signal
+Detected AI agent env. Prepending --quiet --batch=false --heartbeat_period=30s to improve latency and reduce context pollution. User-supplied flags take precedence.

@@ -1,0 +1,11 @@
+prefix=/home/wisdom/Desktop/chromium_local/chromium/src/third_party/capnproto/install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: KJ TLS Adapters
+Description: Basic utility library called KJ (TLS part)
+Version: 1.1.0
+Libs: -L${libdir} -lkj-tls   
+Requires: kj-async = 1.1.0
+Cflags: -I${includedir}   

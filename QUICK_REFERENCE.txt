@@ -1,0 +1,87 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                       ┃
+┃       🎯 污点追踪测试 - 快速参考卡片                    ┃
+┃                                                       ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+📍 核心文件位置
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+测试文件:  v8/test/cctest/test-taint-tracking.cc (2257行)
+实现文件:  v8/src/taint_tracking/taint_tracking.cc
+API定义:   v8/src/taint_tracking.h
+内联实现:  v8/src/taint_tracking-inl.h
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚡ 一键运行测试
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$ chmod +x setup_and_test.sh && ./setup_and_test.sh
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💡 核心API
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+JavaScript:
+  str.__setTaint__(1)              // 标记污点
+  str.__getTaint__()               // 获取污点状态
+  __setTaint__(obj, 1)             // 标记对象
+  __taintConstants__().Url         // 污点类型常量
+
+C++:
+  SetTaintStatus(*str, pos, type)  // 标记
+  GetTaintStatus(*str, pos)        // 获取
+  LogIfTainted(str, label, ...)    // 检测sink
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ 验证清单
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ TaintLarge 通过                 (基本标记)
+□ TaintConsStringTwo 通过         (拼接传播)
+□ TaintSlicedString 通过          (子串传播)
+□ OnBeforeCompileEval 通过        (eval sink)
+□ listener->GetScripts().size()>0 (报警触发)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📚 文档速查
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+INDEX.md                    → 从这里开始 ⭐
+DELIVERY_REPORT.txt         → 完整交付报告
+QUICKSTART.md               → 快速开始指南
+TAINT_TRACKING_SUMMARY.md   → 系统概述
+README_TAINT_TEST.md        → 测试详解
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔧 常用命令
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# 运行所有污点测试
+v8/out/Debug/cctest --gtest_filter="*Taint*"
+
+# 运行单个测试
+v8/out/Debug/cctest --gtest_filter="TaintLarge"
+
+# 查看测试列表
+v8/out/Debug/cctest --gtest_list_tests | grep Taint
+
+# 使用GDB调试
+gdb v8/out/Debug/cctest
+(gdb) break LogIfTainted
+(gdb) run --gtest_filter="OnBeforeCompileEval"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 测试示例
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// 标记 → 传播 → Sink
+var input = "attack";
+input.__setTaint__(1);           // 1. 标记污点
+var code = "alert(" + input + ")"; // 2. 传播
+eval(code);                       // 3. 触发报警！
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+创建日期: 2026-06-10
+状态: ✅ 完成

@@ -1,0 +1,76 @@
+# Copyright 2024 The Chromium Authors
+# Use of this source code is governed by a BSD-style license.
+
+config("capnp_config") {
+  include_dirs = [
+    "src",
+  ]
+
+  cflags_cc = [
+    "-Wno-unused-parameter",
+    "-Wno-sign-compare",
+    "-Wno-deprecated-declarations",
+  ]
+}
+
+# KJ library - foundational utilities
+source_set("kj") {
+  sources = [
+    "src/kj/arena.c++",
+    "src/kj/array.c++",
+    "src/kj/common.c++",
+    "src/kj/debug.c++",
+    "src/kj/encoding.c++",
+    "src/kj/exception.c++",
+    "src/kj/hash.c++",
+    "src/kj/io.c++",
+    "src/kj/memory.c++",
+    "src/kj/mutex.c++",
+    "src/kj/refcount.c++",
+    "src/kj/source-location.c++",
+    "src/kj/string.c++",
+    "src/kj/string-tree.c++",
+    "src/kj/table.c++",
+    "src/kj/thread.c++",
+    "src/kj/time.c++",
+    "src/kj/units.c++",
+  ]
+
+  configs -= [ "//build/config/compiler:chromium_code" ]
+  configs += [
+    "//build/config/compiler:no_chromium_code",
+    ":capnp_config",
+  ]
+
+  public_configs = [ ":capnp_config" ]
+}
+
+# Cap'n Proto runtime library
+source_set("capnp") {
+  sources = [
+    "src/capnp/any.c++",
+    "src/capnp/arena.c++",
+    "src/capnp/blob.c++",
+    "src/capnp/layout.c++",
+    "src/capnp/list.c++",
+    "src/capnp/message.c++",
+    "src/capnp/schema.c++",
+    "src/capnp/schema.capnp.c++",
+    "src/capnp/schema-loader.c++",
+    "src/capnp/serialize.c++",
+    "src/capnp/serialize-packed.c++",
+    "src/capnp/c++.capnp.c++",
+    "src/capnp/dynamic.c++",
+    "src/capnp/stringify.c++",
+  ]
+
+  deps = [ ":kj" ]
+
+  configs -= [ "//build/config/compiler:chromium_code" ]
+  configs += [
+    "//build/config/compiler:no_chromium_code",
+    ":capnp_config",
+  ]
+
+  public_configs = [ ":capnp_config" ]
+}

@@ -1,0 +1,1 @@
+Run gn clean before switching from ninja to siso in out/Debug
