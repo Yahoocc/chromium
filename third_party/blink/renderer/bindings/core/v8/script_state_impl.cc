@@ -37,10 +37,6 @@ void ScriptStateImpl::Trace(Visitor* visitor) const {
 int64_t ScriptStateImpl::LogIfTainted(const String& str,
                                        int argument_index,
                                        v8::String::TaintSinkLabel label) {
-  // Temporarily disable taint logging to debug hang issue
-  return -1;
-
-  /* Commented out to debug hang issue
   if (!ContextIsValid()) {
     return -1;
   }
@@ -72,7 +68,6 @@ int64_t ScriptStateImpl::LogIfTainted(const String& str,
           label);
     }
   });
-  */
 }
 
 }  // namespace blink
