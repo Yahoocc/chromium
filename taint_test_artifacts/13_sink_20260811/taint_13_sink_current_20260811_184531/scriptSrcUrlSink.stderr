@@ -1,0 +1,4 @@
+[taint] Initialize pid=691334 isolate=0x30dc004c8000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/scriptSrcUrlSink_log' sources_sinks_to_logs=0
+[taint] open log pid=691334 file='/tmp/taint_13_sink_current_20260811_184531/scriptSrcUrlSink_log_691334_1786445520121_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=691336 isolate=0x38c4004d0000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/scriptSrcUrlSink_log' sources_sinks_to_logs=0
+[taint] open log pid=691336 file='/tmp/taint_13_sink_current_20260811_184531/scriptSrcUrlSink_log_691336_1786445520134_0' is_open=1 fail=0 bad=0 errno=0 (Success)

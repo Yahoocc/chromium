@@ -1,0 +1,4 @@
+127.0.0.1 - - [13/Aug/2026 19:48:06] "GET /health.txt HTTP/1.1" 200 -
+127.0.0.1 - - [13/Aug/2026 19:48:36] "GET /page.html?payload=url-source HTTP/1.1" 200 -
+127.0.0.1 - - [13/Aug/2026 19:48:36] code 404, message File not found
+127.0.0.1 - - [13/Aug/2026 19:48:36] "GET /favicon.ico HTTP/1.1" 404 -

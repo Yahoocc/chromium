@@ -1,0 +1,2 @@
+2026/08/13-22:24:43.852 7636 Creating DB /tmp/taint_one_source_cookie_20260813_222442/profile/Default/shared_proto_db/metadata since it was missing.
+2026/08/13-22:24:45.134 7636 Reusing MANIFEST /tmp/taint_one_source_cookie_20260813_222442/profile/Default/shared_proto_db/metadata/MANIFEST-000001

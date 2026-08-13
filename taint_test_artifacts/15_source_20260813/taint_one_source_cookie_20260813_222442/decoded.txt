@@ -1,0 +1,31 @@
+( message = (
+    jsSinkTainted = (
+      taintSource = (
+        ranges = [
+          (start = 0, end = 4294967295, type = cookie, encoding = none) ] ),
+      targetString = (
+        segments = [
+          ( content = "source_cookie=cookie-source-value",
+            isOneByte = true ) ] ),
+      symbolicRef = 0,
+      sinkType = html,
+      size = 0,
+      stackTrace = (
+        frames = [
+          ( frameHumanReadable = "    0: ApiCallbackExitFrame write(this=0x38b90103773d <HTMLDocument map = 0x38b90103760d>,0x38b9010add65 <String[33]: e\"source_cookie=cookie-source-value\">)\n\n================details==============\n[0]: ApiCallbackExitFrame write(this=0x38b90103773d <HTMLDocument map = 0x38b90103760d>,0x38b9010add65 <String[33]: e\"source_cookie=cookie-source-value\">)\n\n" ),
+          ( frameInfo = (
+              scriptName = (segments = []),
+              lineNumber = 2,
+              position = 93,
+              sourceUrl = (
+                segments = [
+                  (content = "undefined", isOneByte = true) ] ),
+              sourceId = 5,
+              astIndex = -3,
+              functionStartPosition = 0,
+              functionEndPosition = 0 ),
+            frameHumanReadable = "    1: /* anonymous */ [0x38b9010adbe1] [http://127.0.0.1:46135/page.html?payload=url-source:2] [bytecode=0x8ee0100069d offset=31](this=0x38b90102637d <JSGlobalProxy>)\n================details==============\n[1]: /* anonymous */ [0x38b9010adbe1] [http://127.0.0.1:46135/page.html?payload=url-source:2] [bytecode=0x8ee0100069d offset=31](this=0x38b90102637d <JSGlobalProxy>) {\n  // expression stack (top to bottom)\n  [12] : 2506752\n  [11] : 0x38b900000011 <undefined>\n  [10] : 0x38b9010263dd <NativeContext[307]>\n  [09] : 0x38b90102af75 <JSFunction write (sfi = 0x38b901011679)>\n  [08] : 0x38b90103773d <HTMLDocument map = 0x38b90103760d>\n  [07] : 0x38b9010add65 <String[33]: e\"source_cookie=cookie-source-value\">\n  [06] : 0x38b900000011 <undefined>\n  [05] : 0x38b900000011 <undefined>\n  [04] : 0x38b9010add65 <String[33]: e\"source_cookie=cookie-source-value\">\n  [03] : 0x38b90103773d <HTMLDocument map = 0x38b90103760d>\n  [02] : 0x38b90102af75 <JSFunction write (sfi = 0x38b901011679)>\n  [01] : 0x38b9010263dd <NativeContext[307]>\n  [00] : 0x38b900000011 <undefined>\n--------- s o u r c e   c o d e ---------\n\\x0atry { document.cookie = \"source_cookie=cookie-source-value; path=/; SameSite=Lax\"; document.write(document.cookie); }\\x0acatch (e) { document.write(\"ERR:\" + e.name + \":\" + e.message); }\\x0a\n-----------------------------------------\n}\n\n" ),
+          ( frameHumanReadable = "    2: InternalFrame [pc: 0x70933bdd365c]\n================details==============\n[2]: InternalFrame [pc: 0x70933bdd365c]\n" ),
+          ( frameHumanReadable = "    3: EntryFrame [pc: 0x70933bdd33ab]\n================details==============\n[3]: EntryFrame [pc: 0x70933bdd33ab]\n" ) ] ) ) ),
+  isolate = 9088155811840,
+  messageId = 0 )

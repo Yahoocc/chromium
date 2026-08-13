@@ -332,7 +332,8 @@ void Location::SetLocation(const String& url,
       ScriptState* script_state = ToScriptStateForMainWorld(frame);
       if (script_state) {
         // Note: LogIfTainted is defined in script_state_impl.h
-        static_cast<ScriptStateImpl*>(script_state)->LogIfTainted(url, 0, v8::String::TaintSinkLabel::LOCATION_ASSIGN);
+        static_cast<ScriptStateImpl*>(script_state)->LogIfTainted(
+            url, 0, v8::String::TaintSinkLabel::LOCATION_ASSIGNMENT);
       }
     }
   }

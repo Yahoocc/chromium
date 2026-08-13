@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><body><script>
+function tainted(value) {
+  localStorage.setItem("taint-key", value);
+  return localStorage.getItem("taint-key");
+}
+try {
+var s = tainted("window.__event_sink = 1"); var a = document.createElement("a"); document.body.appendChild(a); a.setAttribute("onclick", s); document.body.append("done");
+} catch (e) {
+  document.body.append("ERR:" + e.name + ":" + e.message);
+}
+</script></body>

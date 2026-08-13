@@ -1,0 +1,6 @@
+[taint] Initialize pid=3628495 isolate=0x117c004b0000 taint_log_file='/tmp/taint_15_source_isolated_health_20260813_194129/cookie/log' sources_sinks_to_logs=0
+[taint] Initialize pid=3628368 isolate=0x172c004cc000 taint_log_file='/tmp/taint_15_source_isolated_health_20260813_194129/cookie/log' sources_sinks_to_logs=0
+[taint] open log pid=3628495 file='/tmp/taint_15_source_isolated_health_20260813_194129/cookie/log_3628495_1786621302488_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] open log pid=3628368 file='/tmp/taint_15_source_isolated_health_20260813_194129/cookie/log_3628368_1786621302488_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=3628369 isolate=0x384c004cc000 taint_log_file='/tmp/taint_15_source_isolated_health_20260813_194129/cookie/log' sources_sinks_to_logs=0
+[taint] open log pid=3628369 file='/tmp/taint_15_source_isolated_health_20260813_194129/cookie/log_3628369_1786621302490_0' is_open=1 fail=0 bad=0 errno=0 (Success)

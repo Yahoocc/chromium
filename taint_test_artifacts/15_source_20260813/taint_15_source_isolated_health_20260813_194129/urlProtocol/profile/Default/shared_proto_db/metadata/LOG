@@ -1,0 +1,2 @@
+2026/08/13-19:44:04.311 379d48 Creating DB /tmp/taint_15_source_isolated_health_20260813_194129/urlProtocol/profile/Default/shared_proto_db/metadata since it was missing.
+2026/08/13-19:44:04.974 379d48 Reusing MANIFEST /tmp/taint_15_source_isolated_health_20260813_194129/urlProtocol/profile/Default/shared_proto_db/metadata/MANIFEST-000001

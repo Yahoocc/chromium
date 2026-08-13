@@ -1,0 +1,12 @@
+[taint] Initialize pid=682320 isolate=0x306c004c8000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/iframeSrcSink_log' sources_sinks_to_logs=0
+[taint] Initialize pid=682321 isolate=0x33cc004c8000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/iframeSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=682320 file='/tmp/taint_13_sink_current_20260811_184531/iframeSrcSink_log_682320_1786445449361_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] open log pid=682321 file='/tmp/taint_13_sink_current_20260811_184531/iframeSrcSink_log_682321_1786445449361_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[682117:682354:0811/185050.393968:ERROR:net/socket/ssl_client_socket_impl.cc:924] handshake failed; returned -1, SSL error code 1, net_error -100
+[taint] Initialize pid=682426 isolate=0x1504004bc000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/iframeSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=682426 file='/tmp/taint_13_sink_current_20260811_184531/iframeSrcSink_log_682426_1786445450442_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[682117:682354:0811/185050.771103:ERROR:net/socket/ssl_client_socket_impl.cc:924] handshake failed; returned -1, SSL error code 1, net_error -100
+[682117:682354:0811/185117.241738:ERROR:net/socket/ssl_client_socket_impl.cc:924] handshake failed; returned -1, SSL error code 1, net_error -100
+[682117:682354:0811/185117.611765:ERROR:net/socket/ssl_client_socket_impl.cc:924] handshake failed; returned -1, SSL error code 1, net_error -100
+[taint] Initialize pid=685743 isolate=0x914004b4000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/iframeSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=685743 file='/tmp/taint_13_sink_current_20260811_184531/iframeSrcSink_log_685743_1786445479119_0' is_open=1 fail=0 bad=0 errno=0 (Success)

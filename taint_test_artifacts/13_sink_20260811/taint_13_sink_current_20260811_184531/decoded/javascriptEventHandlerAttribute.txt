@@ -1,0 +1,31 @@
+( message = (
+    jsSinkTainted = (
+      taintSource = (
+        ranges = [
+          (start = 0, end = 4294967295, type = storage, encoding = none) ] ),
+      targetString = (
+        segments = [
+          ( content = "window.__event_sink = 1",
+            isOneByte = true ) ] ),
+      symbolicRef = 0,
+      sinkType = javascriptEventHandlerAttribute,
+      size = 0,
+      stackTrace = (
+        frames = [
+          ( frameHumanReadable = "    0: ApiCallbackExitFrame setAttribute(this=0x38ad010565b9 <HTMLAnchorElement map = 0x38ad010bbb51>,0x38ad002011d1 <String[7]: #onclick>,0x38ad010ae245 <String[23]: e\"window.__event_sink = 1\">)\n\n================details==============\n[0]: ApiCallbackExitFrame setAttribute(this=0x38ad010565b9 <HTMLAnchorElement map = 0x38ad010bbb51>,0x38ad002011d1 <String[7]: #onclick>,0x38ad010ae245 <String[23]: e\"window.__event_sink = 1\">)\n\n" ),
+          ( frameInfo = (
+              scriptName = (segments = []),
+              lineNumber = 7,
+              position = 236,
+              sourceUrl = (
+                segments = [
+                  (content = "undefined", isOneByte = true) ] ),
+              sourceId = 5,
+              astIndex = -3,
+              functionStartPosition = 0,
+              functionEndPosition = 0 ),
+            frameHumanReadable = "    1: /* anonymous */ [0x38ad010adbf5] [file:///tmp/taint_13_sink_current_20260811_184531/pages/javascriptEventHandlerAttribute.html:7] [bytecode=0x2db9010006d5 offset=87](this=0x38ad0102637d <JSGlobalProxy>)\n================details==============\n[1]: /* anonymous */ [0x38ad010adbf5] [file:///tmp/taint_13_sink_current_20260811_184531/pages/javascriptEventHandlerAttribute.html:7] [bytecode=0x2db9010006d5 offset=87](this=0x38ad0102637d <JSGlobalProxy>) {\n  // expression stack (top to bottom)\n  [13] : 2506752\n  [12] : 0x38ad00000011 <undefined>\n  [11] : 0x38ad010263dd <NativeContext[307]>\n  [10] : 0x38ad010b4a15 <JSFunction setAttribute (sfi = 0x38ad010b49e5)>\n  [09] : 0x38ad010565b9 <HTMLAnchorElement map = 0x38ad010bbb51>\n  [08] : 0x38ad002011d1 <String[7]: #onclick>\n  [07] : 0x38ad010ae245 <String[23]: e\"window.__event_sink = 1\">\n  [06] : 0x38ad00000011 <undefined>\n  [05] : 0x38ad010ae245 <String[23]: e\"window.__event_sink = 1\">\n  [04] : 0x38ad002011d1 <String[7]: #onclick>\n  [03] : 0x38ad010565b9 <HTMLAnchorElement map = 0x38ad010bbb51>\n  [02] : 0x38ad010b4a15 <JSFunction setAttribute (sfi = 0x38ad010b49e5)>\n  [01] : 0x38ad010263dd <NativeContext[307]>\n  [00] : 0x38ad00000011 <undefined>\n--------- s o u r c e   c o d e ---------\n\\x0afunction tainted(value) {\\x0a  localStorage.setItem(\"taint-key\", value);\\x0a  return localStorage.getItem(\"taint-key\");\\x0a}\\x0atry {\\x0avar s = tainted(\"window.__event_sink = 1\"); var a = document.createElement(\"a\"); document.body.appendChild(a); a.setAttribute(\"onclick\", s); document.body.append(\"done\");\\x0a} catc...\n\n-----------------------------------------\n}\n\n" ),
+          ( frameHumanReadable = "    2: InternalFrame [pc: 0x7a3dff7d365c]\n================details==============\n[2]: InternalFrame [pc: 0x7a3dff7d365c]\n" ),
+          ( frameHumanReadable = "    3: EntryFrame [pc: 0x7a3dff7d33ab]\n================details==============\n[3]: EntryFrame [pc: 0x7a3dff7d33ab]\n" ) ] ) ) ),
+  isolate = 21010985025536,
+  messageId = 0 )

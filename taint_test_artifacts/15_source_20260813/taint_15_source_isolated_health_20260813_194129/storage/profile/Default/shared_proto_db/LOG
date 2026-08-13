@@ -1,0 +1,2 @@
+2026/08/13-19:48:38.981 380617 Creating DB /tmp/taint_15_source_isolated_health_20260813_194129/storage/profile/Default/shared_proto_db since it was missing.
+2026/08/13-19:48:39.625 380617 Reusing MANIFEST /tmp/taint_15_source_isolated_health_20260813_194129/storage/profile/Default/shared_proto_db/MANIFEST-000001

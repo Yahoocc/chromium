@@ -1,0 +1,7 @@
+[taint] Initialize pid=3629685 isolate=0x2dec004c8000 taint_log_file='/tmp/taint_15_source_isolated_health_20260813_194129/message/log' sources_sinks_to_logs=0
+[taint] Initialize pid=3629686 isolate=0x2004004c4000 taint_log_file='/tmp/taint_15_source_isolated_health_20260813_194129/message/log' sources_sinks_to_logs=0
+[taint] open log pid=3629685 file='/tmp/taint_15_source_isolated_health_20260813_194129/message/log_3629685_1786621326765_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] open log pid=3629686 file='/tmp/taint_15_source_isolated_health_20260813_194129/message/log_3629686_1786621326765_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=3629904 isolate=0x232c026bc000 taint_log_file='/tmp/taint_15_source_isolated_health_20260813_194129/message/log' sources_sinks_to_logs=0
+[taint] open log pid=3629904 file='/tmp/taint_15_source_isolated_health_20260813_194129/message/log_3629904_1786621331342_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[3629258:3629258:0813/194232.946911:ERROR:mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:748] Message 2 rejected by interface blink.mojom.FrameWidgetHost

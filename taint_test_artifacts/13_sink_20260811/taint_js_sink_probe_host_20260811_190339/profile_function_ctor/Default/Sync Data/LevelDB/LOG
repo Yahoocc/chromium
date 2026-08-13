@@ -1,0 +1,2 @@
+2026/08/11-19:03:39.591 b765c Creating DB /tmp/taint_js_sink_probe_host_20260811_190339/profile_function_ctor/Default/Sync Data/LevelDB since it was missing.
+2026/08/11-19:03:41.313 b765c Reusing MANIFEST /tmp/taint_js_sink_probe_host_20260811_190339/profile_function_ctor/Default/Sync Data/LevelDB/MANIFEST-000001

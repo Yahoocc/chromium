@@ -1,0 +1,2 @@
+2026/08/11-19:03:40.452 b765f Creating DB /tmp/taint_js_sink_probe_host_20260811_190339/profile_function_ctor/Default/shared_proto_db/metadata since it was missing.
+2026/08/11-19:03:41.457 b765f Reusing MANIFEST /tmp/taint_js_sink_probe_host_20260811_190339/profile_function_ctor/Default/shared_proto_db/metadata/MANIFEST-000001

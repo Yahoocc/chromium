@@ -1,0 +1,6 @@
+[taint] Initialize pid=751529 isolate=0x3a94004c8000 taint_log_file='/tmp/taint_js_sink_probe_host_20260811_190339/function_ctor_log' sources_sinks_to_logs=0
+[taint] open log pid=751529 file='/tmp/taint_js_sink_probe_host_20260811_190339/function_ctor_log_751529_1786446220923_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=751531 isolate=0x2ecc004c8000 taint_log_file='/tmp/taint_js_sink_probe_host_20260811_190339/function_ctor_log' sources_sinks_to_logs=0
+[taint] open log pid=751531 file='/tmp/taint_js_sink_probe_host_20260811_190339/function_ctor_log_751531_1786446220925_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=751740 isolate=0x27cc004bc000 taint_log_file='/tmp/taint_js_sink_probe_host_20260811_190339/function_ctor_log' sources_sinks_to_logs=0
+[taint] open log pid=751740 file='/tmp/taint_js_sink_probe_host_20260811_190339/function_ctor_log_751740_1786446224450_0' is_open=1 fail=0 bad=0 errno=0 (Success)

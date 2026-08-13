@@ -101,7 +101,7 @@ void HTMLScriptElement::ParseAttribute(
   if (params.name == html_names::kSrcAttr) {
     // Taint tracking: check if the script src is tainted
     LogIfTaintedNode(params.new_value, 1,
-                     v8::String::TaintSinkLabel::URL_SINK);
+                     v8::String::TaintSinkLabel::SCRIPT_SRC_URL_SINK);
 
     loader_->HandleSourceAttribute(params.new_value);
     LogUpdateAttributeIfIsolatedWorldAndInDocument("script", params);

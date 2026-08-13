@@ -1,0 +1,31 @@
+( message = (
+    jsSinkTainted = (
+      taintSource = (
+        ranges = [
+          (start = 0, end = 4294967295, type = storage, encoding = none) ] ),
+      targetString = (
+        segments = [
+          ( content = "https://example.invalid/img-taint.png",
+            isOneByte = true ) ] ),
+      symbolicRef = 0,
+      sinkType = imgSrcSink,
+      size = 0,
+      stackTrace = (
+        frames = [
+          ( frameHumanReadable = "    0: ApiCallbackExitFrame setAttribute(this=0x30fb010565b5 <HTMLImageElement map = 0x30fb010bbb61>,0x30fb010adb05 <String[3]: #src>,0x30fb010ae275 <String[37]: e\"https://example.invalid/img-taint.png\">)\n\n================details==============\n[0]: ApiCallbackExitFrame setAttribute(this=0x30fb010565b5 <HTMLImageElement map = 0x30fb010bbb61>,0x30fb010adb05 <String[3]: #src>,0x30fb010ae275 <String[37]: e\"https://example.invalid/img-taint.png\">)\n\n" ),
+          ( frameInfo = (
+              scriptName = (segments = []),
+              lineNumber = 7,
+              position = 252,
+              sourceUrl = (
+                segments = [
+                  (content = "undefined", isOneByte = true) ] ),
+              sourceId = 5,
+              astIndex = -3,
+              functionStartPosition = 0,
+              functionEndPosition = 0 ),
+            frameHumanReadable = "    1: /* anonymous */ [0x30fb010adc25] [file:///tmp/taint_13_sink_current_20260811_184531/pages/imgSrcSink.html:7] [bytecode=0x35be010006d9 offset=87](this=0x30fb0102637d <JSGlobalProxy>)\n================details==============\n[1]: /* anonymous */ [0x30fb010adc25] [file:///tmp/taint_13_sink_current_20260811_184531/pages/imgSrcSink.html:7] [bytecode=0x35be010006d9 offset=87](this=0x30fb0102637d <JSGlobalProxy>) {\n  // expression stack (top to bottom)\n  [13] : 2605056\n  [12] : 0x30fb00000011 <undefined>\n  [11] : 0x30fb010263dd <NativeContext[307]>\n  [10] : 0x30fb010b4a45 <JSFunction setAttribute (sfi = 0x30fb010b4a15)>\n  [09] : 0x30fb010565b5 <HTMLImageElement map = 0x30fb010bbb61>\n  [08] : 0x30fb010adb05 <String[3]: #src>\n  [07] : 0x30fb010ae275 <String[37]: e\"https://example.invalid/img-taint.png\">\n  [06] : 0x30fb00000011 <undefined>\n  [05] : 0x30fb010ae275 <String[37]: e\"https://example.invalid/img-taint.png\">\n  [04] : 0x30fb010adb05 <String[3]: #src>\n  [03] : 0x30fb010565b5 <HTMLImageElement map = 0x30fb010bbb61>\n  [02] : 0x30fb010b4a45 <JSFunction setAttribute (sfi = 0x30fb010b4a15)>\n  [01] : 0x30fb010263dd <NativeContext[307]>\n  [00] : 0x30fb00000011 <undefined>\n--------- s o u r c e   c o d e ---------\n\\x0afunction tainted(value) {\\x0a  localStorage.setItem(\"taint-key\", value);\\x0a  return localStorage.getItem(\"taint-key\");\\x0a}\\x0atry {\\x0avar s = tainted(\"https://example.invalid/img-taint.png\"); var i = document.createElement(\"img\"); document.body.appendChild(i); i.setAttribute(\"src\", s); document.body.append(\"do...\n\n-----------------------------------------\n}\n\n" ),
+          ( frameHumanReadable = "    2: InternalFrame [pc: 0x79220e5d365c]\n================details==============\n[2]: InternalFrame [pc: 0x79220e5d365c]\n" ),
+          ( frameHumanReadable = "    3: EntryFrame [pc: 0x79220e5d33ab]\n================details==============\n[3]: EntryFrame [pc: 0x79220e5d33ab]\n" ) ] ) ) ),
+  isolate = 55473802805248,
+  messageId = 0 )

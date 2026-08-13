@@ -1,0 +1,5 @@
+127.0.0.1 - - [13/Aug/2026 19:47:36] "GET /health.txt HTTP/1.1" 200 -
+127.0.0.1 - - [13/Aug/2026 19:48:04] "GET /start.html?from=referrer-source HTTP/1.1" 200 -
+127.0.0.1 - - [13/Aug/2026 19:48:04] "GET /page.html HTTP/1.1" 200 -
+127.0.0.1 - - [13/Aug/2026 19:48:04] code 404, message File not found
+127.0.0.1 - - [13/Aug/2026 19:48:04] "GET /favicon.ico HTTP/1.1" 404 -

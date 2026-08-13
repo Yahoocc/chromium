@@ -1,0 +1,6 @@
+[taint] Initialize pid=655275 isolate=0x4ac004d0000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/html_log' sources_sinks_to_logs=0
+[taint] open log pid=655275 file='/tmp/taint_13_sink_current_20260811_184531/html_log_655275_1786445150841_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=655274 isolate=0x10ec004bc000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/html_log' sources_sinks_to_logs=0
+[taint] open log pid=655274 file='/tmp/taint_13_sink_current_20260811_184531/html_log_655274_1786445150845_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=655538 isolate=0x1304004bc000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/html_log' sources_sinks_to_logs=0
+[taint] open log pid=655538 file='/tmp/taint_13_sink_current_20260811_184531/html_log_655538_1786445154894_0' is_open=1 fail=0 bad=0 errno=0 (Success)

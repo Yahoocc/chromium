@@ -1,0 +1,2 @@
+2026/08/13-19:47:07.263 37e57b Creating DB /tmp/taint_15_source_isolated_health_20260813_194129/urlSearch/profile/Default/Sync Data/LevelDB since it was missing.
+2026/08/13-19:47:08.158 37e57b Reusing MANIFEST /tmp/taint_15_source_isolated_health_20260813_194129/urlSearch/profile/Default/Sync Data/LevelDB/MANIFEST-000001

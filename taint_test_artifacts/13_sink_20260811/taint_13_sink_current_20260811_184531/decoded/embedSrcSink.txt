@@ -1,0 +1,31 @@
+( message = (
+    jsSinkTainted = (
+      taintSource = (
+        ranges = [
+          (start = 0, end = 4294967295, type = storage, encoding = none) ] ),
+      targetString = (
+        segments = [
+          ( content = "https://example.invalid/embed-taint",
+            isOneByte = true ) ] ),
+      symbolicRef = 0,
+      sinkType = embedSrcSink,
+      size = 0,
+      stackTrace = (
+        frames = [
+          ( frameHumanReadable = "    0: ApiCallbackExitFrame setAttribute(this=0x1fa601055c4d <HTMLEmbedElement map = 0x1fa6010bacbd>,0x1fa6010adb05 <String[3]: #src>,0x1fa6010ae275 <String[35]: e\"https://example.invalid/embed-taint\">)\n\n================details==============\n[0]: ApiCallbackExitFrame setAttribute(this=0x1fa601055c4d <HTMLEmbedElement map = 0x1fa6010bacbd>,0x1fa6010adb05 <String[3]: #src>,0x1fa6010ae275 <String[35]: e\"https://example.invalid/embed-taint\">)\n\n" ),
+          ( frameInfo = (
+              scriptName = (segments = []),
+              lineNumber = 7,
+              position = 252,
+              sourceUrl = (
+                segments = [
+                  (content = "undefined", isOneByte = true) ] ),
+              sourceId = 5,
+              astIndex = -3,
+              functionStartPosition = 0,
+              functionEndPosition = 0 ),
+            frameHumanReadable = "    1: /* anonymous */ [0x1fa6010adc25] [file:///tmp/taint_13_sink_current_20260811_184531/pages/embedSrcSink.html:7] [bytecode=0x3ae9010006d9 offset=87](this=0x1fa60102637d <JSGlobalProxy>)\n================details==============\n[1]: /* anonymous */ [0x1fa6010adc25] [file:///tmp/taint_13_sink_current_20260811_184531/pages/embedSrcSink.html:7] [bytecode=0x3ae9010006d9 offset=87](this=0x1fa60102637d <JSGlobalProxy>) {\n  // expression stack (top to bottom)\n  [13] : 2514944\n  [12] : 0x1fa600000011 <undefined>\n  [11] : 0x1fa6010263dd <NativeContext[307]>\n  [10] : 0x1fa6010b4a45 <JSFunction setAttribute (sfi = 0x1fa6010b4a15)>\n  [09] : 0x1fa601055c4d <HTMLEmbedElement map = 0x1fa6010bacbd>\n  [08] : 0x1fa6010adb05 <String[3]: #src>\n  [07] : 0x1fa6010ae275 <String[35]: e\"https://example.invalid/embed-taint\">\n  [06] : 0x1fa600000011 <undefined>\n  [05] : 0x1fa6010ae275 <String[35]: e\"https://example.invalid/embed-taint\">\n  [04] : 0x1fa6010adb05 <String[3]: #src>\n  [03] : 0x1fa601055c4d <HTMLEmbedElement map = 0x1fa6010bacbd>\n  [02] : 0x1fa6010b4a45 <JSFunction setAttribute (sfi = 0x1fa6010b4a15)>\n  [01] : 0x1fa6010263dd <NativeContext[307]>\n  [00] : 0x1fa600000011 <undefined>\n--------- s o u r c e   c o d e ---------\n\\x0afunction tainted(value) {\\x0a  localStorage.setItem(\"taint-key\", value);\\x0a  return localStorage.getItem(\"taint-key\");\\x0a}\\x0atry {\\x0avar s = tainted(\"https://example.invalid/embed-taint\"); var e = document.createElement(\"embed\"); document.body.appendChild(e); e.setAttribute(\"src\", s); document.body.append(\"do...\n\n-----------------------------------------\n}\n\n" ),
+          ( frameHumanReadable = "    2: InternalFrame [pc: 0x73fb607d365c]\n================details==============\n[2]: InternalFrame [pc: 0x73fb607d365c]\n" ),
+          ( frameHumanReadable = "    3: EntryFrame [pc: 0x73fb607d33ab]\n================details==============\n[3]: EntryFrame [pc: 0x73fb607d33ab]\n" ) ] ) ) ),
+  isolate = 24240800448512,
+  messageId = 0 )

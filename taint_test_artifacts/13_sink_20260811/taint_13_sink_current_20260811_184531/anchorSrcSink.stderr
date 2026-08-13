@@ -1,0 +1,7 @@
+[taint] Initialize pid=672357 isolate=0x1794004c8000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/anchorSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=672357 file='/tmp/taint_13_sink_current_20260811_184531/anchorSrcSink_log_672357_1786445378867_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=672366 isolate=0x1e8c004f4000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/anchorSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=672366 file='/tmp/taint_13_sink_current_20260811_184531/anchorSrcSink_log_672366_1786445378893_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=672586 isolate=0x369c004bc000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/anchorSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=672586 file='/tmp/taint_13_sink_current_20260811_184531/anchorSrcSink_log_672586_1786445382306_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[672079:672106:0811/184955.844344:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT

@@ -1,0 +1,8 @@
+[taint] Initialize pid=677256 isolate=0x160c004cc000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/embedSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=677256 file='/tmp/taint_13_sink_current_20260811_184531/embedSrcSink_log_677256_1786445414017_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=677254 isolate=0x385c004c4000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/embedSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=677254 file='/tmp/taint_13_sink_current_20260811_184531/embedSrcSink_log_677254_1786445414020_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=677403 isolate=0x3d84004bc000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/embedSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=677403 file='/tmp/taint_13_sink_current_20260811_184531/embedSrcSink_log_677403_1786445415660_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=681801 isolate=0xe84004b0000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/embedSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=681801 file='/tmp/taint_13_sink_current_20260811_184531/embedSrcSink_log_681801_1786445447086_0' is_open=1 fail=0 bad=0 errno=0 (Success)

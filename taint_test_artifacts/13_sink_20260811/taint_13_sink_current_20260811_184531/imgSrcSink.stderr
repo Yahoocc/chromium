@@ -1,0 +1,8 @@
+[taint] Initialize pid=686376 isolate=0x18d4004c8000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/imgSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=686376 file='/tmp/taint_13_sink_current_20260811_184531/imgSrcSink_log_686376_1786445484502_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=686378 isolate=0x3274004f8000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/imgSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=686378 file='/tmp/taint_13_sink_current_20260811_184531/imgSrcSink_log_686378_1786445484533_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[686160:686399:0811/185152.480622:ERROR:net/socket/ssl_client_socket_impl.cc:924] handshake failed; returned -1, SSL error code 1, net_error -100
+[686160:686399:0811/185152.813577:ERROR:net/socket/ssl_client_socket_impl.cc:924] handshake failed; returned -1, SSL error code 1, net_error -100
+[taint] Initialize pid=690743 isolate=0x3e3c004b4000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/imgSrcSink_log' sources_sinks_to_logs=0
+[taint] open log pid=690743 file='/tmp/taint_13_sink_current_20260811_184531/imgSrcSink_log_690743_1786445514238_0' is_open=1 fail=0 bad=0 errno=0 (Success)

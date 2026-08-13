@@ -112,7 +112,8 @@ void HTMLEmbedElement::ParseAttribute(
     SetDisposeView();
   } else if (params.name == html_names::kSrcAttr) {
     // Taint tracking: check if the embed src is tainted
-    LogIfTaintedNode(params.new_value, 1, v8::String::TaintSinkLabel::URL_SINK);
+    LogIfTaintedNode(params.new_value, 1,
+                     v8::String::TaintSinkLabel::EMBED_SRC_SINK);
 
     // https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-embed-element
     // The spec says that when the url attribute is changed and the embed

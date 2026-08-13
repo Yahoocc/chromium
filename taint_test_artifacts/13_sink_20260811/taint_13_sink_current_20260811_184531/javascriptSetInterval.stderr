@@ -1,0 +1,9 @@
+[taint] Initialize pid=670249 isolate=0x18d4004c8000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/javascriptSetInterval_log' sources_sinks_to_logs=0
+[taint] Initialize pid=670248 isolate=0xf64004c8000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/javascriptSetInterval_log' sources_sinks_to_logs=0
+[taint] open log pid=670249 file='/tmp/taint_13_sink_current_20260811_184531/javascriptSetInterval_log_670249_1786445343842_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] open log pid=670248 file='/tmp/taint_13_sink_current_20260811_184531/javascriptSetInterval_log_670248_1786445343842_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=670462 isolate=0x33e4004bc000 taint_log_file='/tmp/taint_13_sink_current_20260811_184531/javascriptSetInterval_log' sources_sinks_to_logs=0
+[taint] open log pid=670462 file='/tmp/taint_13_sink_current_20260811_184531/javascriptSetInterval_log_670462_1786445347313_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[669968:669990:0811/184930.216755:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[669968:669990:0811/184930.577157:ERROR:google_apis/gcm/engine/connection_handler_impl.cc:404] Received message of invalid type 84
+[669968:669990:0811/184930.577329:ERROR:google_apis/gcm/engine/connection_factory_impl.cc:484] ConnectionHandler failed with net error: -4

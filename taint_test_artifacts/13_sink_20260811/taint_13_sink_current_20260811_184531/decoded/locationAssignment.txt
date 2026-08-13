@@ -1,0 +1,32 @@
+( message = (
+    jsSinkTainted = (
+      taintSource = (
+        ranges = [
+          (start = 0, end = 4294967295, type = storage, encoding = none) ] ),
+      targetString = (
+        segments = [
+          ( content = "about:blank#location-taint",
+            isOneByte = true ) ] ),
+      symbolicRef = 0,
+      sinkType = locationAssignment,
+      size = 0,
+      stackTrace = (
+        frames = [
+          ( frameHumanReadable = "    0: ExitFrame [pc: 0x79098b48acf6]\n================details==============\n[0]: ExitFrame [pc: 0x79098b48acf6]\n" ),
+          ( frameHumanReadable = "    1: StubFrame [pc: 0x79098b58eeed]\n================details==============\n[1]: StubFrame [pc: 0x79098b58eeed]\n" ),
+          ( frameInfo = (
+              scriptName = (segments = []),
+              lineNumber = 7,
+              position = 186,
+              sourceUrl = (
+                segments = [
+                  (content = "undefined", isOneByte = true) ] ),
+              sourceId = 5,
+              astIndex = -3,
+              functionStartPosition = 0,
+              functionEndPosition = 0 ),
+            frameHumanReadable = "    2: /* anonymous */ [0x37b1010adbd5] [file:///tmp/taint_13_sink_current_20260811_184531/pages/locationAssignment.html:7] [bytecode=0x2f4e010006c9 offset=35](this=0x37b10102637d <JSGlobalProxy>)\n================details==============\n[2]: /* anonymous */ [0x37b1010adbd5] [file:///tmp/taint_13_sink_current_20260811_184531/pages/locationAssignment.html:7] [bytecode=0x2f4e010006c9 offset=35](this=0x37b10102637d <JSGlobalProxy>) {\n  // expression stack (top to bottom)\n  [06] : 0x37b100000011 <undefined>\n  [05] : 0x37b100000011 <undefined>\n  [04] : 0x37b100000011 <undefined>\n  [03] : 0x37b1010adaa9 <String[26]: #about:blank#location-taint>\n  [02] : 0x37b10102637d <JSGlobalProxy>\n  [01] : 0x37b1010263dd <NativeContext[307]>\n  [00] : 0x37b100000011 <undefined>\n--------- s o u r c e   c o d e ---------\n\\x0afunction tainted(value) {\\x0a  localStorage.setItem(\"taint-key\", value);\\x0a  return localStorage.getItem(\"taint-key\");\\x0a}\\x0atry {\\x0avar s = tainted(\"about:blank#location-taint\"); window.location = s; document.body.append(\"done\");\\x0a} catch (e) {\\x0a  document.body.append(\"ERR:\" + e.name + \":\" + e.message);\\x0a}\\x0a\n-----------------------------------------\n}\n\n" ),
+          ( frameHumanReadable = "    3: InternalFrame [pc: 0x79098b3d365c]\n================details==============\n[3]: InternalFrame [pc: 0x79098b3d365c]\n" ),
+          ( frameHumanReadable = "    4: EntryFrame [pc: 0x79098b3d33ab]\n================details==============\n[4]: EntryFrame [pc: 0x79098b3d33ab]\n" ) ] ) ) ),
+  isolate = 40870949634048,
+  messageId = 0 )

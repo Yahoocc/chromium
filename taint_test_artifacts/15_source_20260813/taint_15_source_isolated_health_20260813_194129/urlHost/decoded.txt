@@ -1,0 +1,31 @@
+( message = (
+    jsSinkTainted = (
+      taintSource = (
+        ranges = [
+          (start = 0, end = 4294967295, type = urlHost, encoding = none) ] ),
+      targetString = (
+        segments = [
+          ( content = "127.0.0.1:34961",
+            isOneByte = true ) ] ),
+      symbolicRef = 0,
+      sinkType = html,
+      size = 0,
+      stackTrace = (
+        frames = [
+          ( frameHumanReadable = "    0: ApiCallbackExitFrame write(this=0x78f50103773d <HTMLDocument map = 0x78f50103760d>,0x78f5010aea59 <String[15]: e\"127.0.0.1:34961\">)\n\n================details==============\n[0]: ApiCallbackExitFrame write(this=0x78f50103773d <HTMLDocument map = 0x78f50103760d>,0x78f5010aea59 <String[15]: e\"127.0.0.1:34961\">)\n\n" ),
+          ( frameInfo = (
+              scriptName = (segments = []),
+              lineNumber = 2,
+              position = 16,
+              sourceUrl = (
+                segments = [
+                  (content = "undefined", isOneByte = true) ] ),
+              sourceId = 5,
+              astIndex = -3,
+              functionStartPosition = 0,
+              functionEndPosition = 0 ),
+            frameHumanReadable = "    1: /* anonymous */ [0x78f5010adbad] [http://127.0.0.1:34961/page.html?payload=url-source:2] [bytecode=0x1cf80100069d offset=21](this=0x78f50102637d <JSGlobalProxy>)\n================details==============\n[1]: /* anonymous */ [0x78f5010adbad] [http://127.0.0.1:34961/page.html?payload=url-source:2] [bytecode=0x1cf80100069d offset=21](this=0x78f50102637d <JSGlobalProxy>) {\n  // expression stack (top to bottom)\n  [12] : 2482176\n  [11] : 0x78f500000011 <undefined>\n  [10] : 0x78f5010263dd <NativeContext[307]>\n  [09] : 0x78f50102af75 <JSFunction write (sfi = 0x78f501011679)>\n  [08] : 0x78f50103773d <HTMLDocument map = 0x78f50103760d>\n  [07] : 0x78f5010aea59 <String[15]: e\"127.0.0.1:34961\">\n  [06] : 0x78f500000011 <undefined>\n  [05] : 0x78f500000011 <undefined>\n  [04] : 0x78f5010aea59 <String[15]: e\"127.0.0.1:34961\">\n  [03] : 0x78f50103773d <HTMLDocument map = 0x78f50103760d>\n  [02] : 0x78f50102af75 <JSFunction write (sfi = 0x78f501011679)>\n  [01] : 0x78f5010263dd <NativeContext[307]>\n  [00] : 0x78f500000011 <undefined>\n--------- s o u r c e   c o d e ---------\n\\x0atry { document.write(location.host); }\\x0acatch (e) { document.write(\"ERR:\" + e.name + \":\" + e.message); }\\x0a\n-----------------------------------------\n}\n\n" ),
+          ( frameHumanReadable = "    2: InternalFrame [pc: 0x7a3d407d365c]\n================details==============\n[2]: InternalFrame [pc: 0x7a3d407d365c]\n" ),
+          ( frameHumanReadable = "    3: EntryFrame [pc: 0x7a3d407d33ab]\n================details==============\n[3]: EntryFrame [pc: 0x7a3d407d33ab]\n" ) ] ) ) ),
+  isolate = 59425172471808,
+  messageId = 0 )

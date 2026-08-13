@@ -1,0 +1,7 @@
+[taint] Initialize pid=3649392 isolate=0x360c004bc000 taint_log_file='/tmp/taint_15_source_isolated_health_20260813_194129/urlHost/log' sources_sinks_to_logs=0
+[taint] Initialize pid=3649391 isolate=0x2b04004c8000 taint_log_file='/tmp/taint_15_source_isolated_health_20260813_194129/urlHost/log' sources_sinks_to_logs=0
+[taint] open log pid=3649392 file='/tmp/taint_15_source_isolated_health_20260813_194129/urlHost/log_3649392_1786621475408_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] open log pid=3649391 file='/tmp/taint_15_source_isolated_health_20260813_194129/urlHost/log_3649391_1786621475408_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=3649578 isolate=0x1b74004bc000 taint_log_file='/tmp/taint_15_source_isolated_health_20260813_194129/urlHost/log' sources_sinks_to_logs=0
+[taint] open log pid=3649578 file='/tmp/taint_15_source_isolated_health_20260813_194129/urlHost/log_3649578_1786621480438_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[3649137:3649159:0813/194501.388103:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT

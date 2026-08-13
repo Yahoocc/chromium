@@ -1,0 +1,6 @@
+<!doctype html><meta charset="utf-8"><body><script>
+function tainted(value){ localStorage.setItem("taint-key", value); return localStorage.getItem("taint-key"); }
+try {
+var s = tainted("window.__script_text_sink = 1;"); var sc = document.createElement("script"); document.body.appendChild(sc); sc.textContent = s; document.body.append("done");
+} catch(e) { document.body.append("ERR:" + e.name + ":" + e.message); }
+</script></body>

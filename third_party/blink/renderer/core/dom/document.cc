@@ -6839,7 +6839,7 @@ void Document::setCookie(const String& value, ExceptionState& exception_state) {
   }
 
   // Taint tracking: check if the cookie value is tainted
-  LogIfTaintedNode(value, 0, v8::String::TaintSinkLabel::URL_SINK);
+  LogIfTaintedNode(value, 0, v8::String::TaintSinkLabel::COOKIE_SINK);
 
   cookie_jar_->SetCookie(value);
 }

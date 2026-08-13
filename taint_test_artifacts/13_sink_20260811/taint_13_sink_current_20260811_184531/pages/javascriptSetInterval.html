@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><body><script>
+function tainted(value) {
+  localStorage.setItem("taint-key", value);
+  return localStorage.getItem("taint-key");
+}
+try {
+var s = tainted("window.__interval_sink = 1"); var id = setInterval(s, 10); setTimeout(function(){ clearInterval(id); document.body.append("done"); }, 30);
+} catch (e) {
+  document.body.append("ERR:" + e.name + ":" + e.message);
+}
+</script></body>

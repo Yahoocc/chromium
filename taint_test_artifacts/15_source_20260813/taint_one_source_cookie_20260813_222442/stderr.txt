@@ -1,0 +1,7 @@
+[taint] Initialize pid=30305 isolate=0x844004c8000 taint_log_file='/tmp/taint_one_source_cookie_20260813_222442/log' sources_sinks_to_logs=0
+[taint] open log pid=30305 file='/tmp/taint_one_source_cookie_20260813_222442/log_30305_1786631084346_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=30302 isolate=0x444004c0000 taint_log_file='/tmp/taint_one_source_cookie_20260813_222442/log' sources_sinks_to_logs=0
+[taint] open log pid=30302 file='/tmp/taint_one_source_cookie_20260813_222442/log_30302_1786631084356_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=31632 isolate=0x2514004bc000 taint_log_file='/tmp/taint_one_source_cookie_20260813_222442/log' sources_sinks_to_logs=0
+[taint] open log pid=31632 file='/tmp/taint_one_source_cookie_20260813_222442/log_31632_1786631089332_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[29983:30104:0813/222510.445833:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT

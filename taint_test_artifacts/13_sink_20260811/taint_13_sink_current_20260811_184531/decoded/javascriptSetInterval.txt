@@ -1,0 +1,31 @@
+( message = (
+    jsSinkTainted = (
+      taintSource = (
+        ranges = [
+          (start = 0, end = 4294967295, type = storage, encoding = none) ] ),
+      targetString = (
+        segments = [
+          ( content = "window.__interval_sink = 1",
+            isOneByte = true ) ] ),
+      symbolicRef = 0,
+      sinkType = javascriptSetInterval,
+      size = 0,
+      stackTrace = (
+        frames = [
+          ( frameHumanReadable = "    0: ApiCallbackExitFrame setInterval(this=0x28b90102637d <JSGlobalProxy>,0x28b9010ae26d <String[26]: e\"window.__interval_sink = 1\">,10)\n\n================details==============\n[0]: ApiCallbackExitFrame setInterval(this=0x28b90102637d <JSGlobalProxy>,0x28b9010ae26d <String[26]: e\"window.__interval_sink = 1\">,10)\n\n" ),
+          ( frameInfo = (
+              scriptName = (segments = []),
+              lineNumber = 7,
+              position = 179,
+              sourceUrl = (
+                segments = [
+                  (content = "undefined", isOneByte = true) ] ),
+              sourceId = 5,
+              astIndex = -3,
+              functionStartPosition = 0,
+              functionEndPosition = 0 ),
+            frameHumanReadable = "    1: /* anonymous */ [0x28b9010adc0d] [file:///tmp/taint_13_sink_current_20260811_184531/pages/javascriptSetInterval.html:7] [bytecode=0x2701010006e1 offset=39](this=0x28b90102637d <JSGlobalProxy>)\n================details==============\n[1]: /* anonymous */ [0x28b9010adc0d] [file:///tmp/taint_13_sink_current_20260811_184531/pages/javascriptSetInterval.html:7] [bytecode=0x2701010006e1 offset=39](this=0x28b90102637d <JSGlobalProxy>) {\n  // expression stack (top to bottom)\n  [13] : 2506752\n  [12] : 0x28b900000011 <undefined>\n  [11] : 0x28b9010263dd <NativeContext[307]>\n  [10] : 0x28b901036f2d <JSFunction setInterval (sfi = 0x28b901008d5d)>\n  [09] : 0x28b90102637d <JSGlobalProxy>\n  [08] : 0x28b9010ae26d <String[26]: e\"window.__interval_sink = 1\">\n  [07] : 10\n  [06] : 0x28b900000011 <undefined>\n  [05] : 0x28b900000011 <undefined>\n  [04] : 10\n  [03] : 0x28b9010ae26d <String[26]: e\"window.__interval_sink = 1\">\n  [02] : 0x28b901036f2d <JSFunction setInterval (sfi = 0x28b901008d5d)>\n  [01] : 0x28b9010263dd <NativeContext[307]>\n  [00] : 0x28b900000011 <undefined>\n--------- s o u r c e   c o d e ---------\n\\x0afunction tainted(value) {\\x0a  localStorage.setItem(\"taint-key\", value);\\x0a  return localStorage.getItem(\"taint-key\");\\x0a}\\x0atry {\\x0avar s = tainted(\"window.__interval_sink = 1\"); var id = setInterval(s, 10); setTimeout(function(){ clearInterval(id); document.body.append(\"done\"); }, 30);\\x0a} catch (e) {\\x0a  docum...\n\n-----------------------------------------\n}\n\n" ),
+          ( frameHumanReadable = "    2: InternalFrame [pc: 0x7a52599d365c]\n================details==============\n[2]: InternalFrame [pc: 0x7a52599d365c]\n" ),
+          ( frameHumanReadable = "    3: EntryFrame [pc: 0x7a52599d33ab]\n================details==============\n[3]: EntryFrame [pc: 0x7a52599d33ab]\n" ) ] ) ) ),
+  isolate = 27298817146880,
+  messageId = 0 )

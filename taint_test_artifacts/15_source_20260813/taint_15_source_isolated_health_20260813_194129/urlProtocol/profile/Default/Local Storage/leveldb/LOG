@@ -1,0 +1,2 @@
+2026/08/13-19:44:04.680 379e8a Creating DB /tmp/taint_15_source_isolated_health_20260813_194129/urlProtocol/profile/Default/Local Storage/leveldb since it was missing.
+2026/08/13-19:44:05.263 379e8a Reusing MANIFEST /tmp/taint_15_source_isolated_health_20260813_194129/urlProtocol/profile/Default/Local Storage/leveldb/MANIFEST-000001

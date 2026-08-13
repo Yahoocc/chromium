@@ -3783,11 +3783,12 @@ void Element::AttributeChanged(const AttributeModificationParams& params) {
   if (name.LocalName().starts_with("on")) {
     // Event handler attribute (onclick, onload, etc.)
     LogIfTaintedNode(params.new_value, 1,
-                     v8::String::TaintSinkLabel::ONEVENT);
+                     v8::String::TaintSinkLabel::
+                         JAVASCRIPT_EVENT_HANDLER_ATTRIBUTE);
   } else if (name == html_names::kStyleAttr) {
     // Style attribute
     LogIfTaintedNode(params.new_value, 1,
-                     v8::String::TaintSinkLabel::HTML);
+                     v8::String::TaintSinkLabel::CSS_STYLE_ATTRIBUTE);
   }
 
   ParseAttribute(params);

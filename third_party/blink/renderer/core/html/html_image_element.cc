@@ -329,7 +329,8 @@ void HTMLImageElement::ParseAttribute(
   } else if (name == html_names::kSrcAttr || name == html_names::kSrcsetAttr ||
              name == html_names::kSizesAttr) {
     // Taint tracking: check if the image src is tainted
-    LogIfTaintedNode(params.new_value, 1, v8::String::TaintSinkLabel::URL_SINK);
+    LogIfTaintedNode(params.new_value, 1,
+                     v8::String::TaintSinkLabel::IMG_SRC_SINK);
 
     SelectSourceURL(ImageLoader::kUpdateIgnorePreviousError);
   } else if (name == html_names::kUsemapAttr) {
