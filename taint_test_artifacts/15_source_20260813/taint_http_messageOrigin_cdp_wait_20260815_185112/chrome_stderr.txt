@@ -1,0 +1,6 @@
+
+DevTools listening on ws://127.0.0.1:42571/devtools/browser/250ddee0-713b-44ea-958e-fc5ba172bf78
+[taint] Initialize pid=3120991 isolate=0x1a04004b0000 taint_log_file='/tmp/taint_http_messageOrigin_cdp_wait_20260815_185112/log' sources_sinks_to_logs=0
+[taint] open log pid=3120991 file='/tmp/taint_http_messageOrigin_cdp_wait_20260815_185112/log_3120991_1786791073879_0' is_open=1 fail=0 bad=0 errno=0 (Success)
+[taint] Initialize pid=3120993 isolate=0x1a04004c0000 taint_log_file='/tmp/taint_http_messageOrigin_cdp_wait_20260815_185112/log' sources_sinks_to_logs=0
+[taint] open log pid=3120993 file='/tmp/taint_http_messageOrigin_cdp_wait_20260815_185112/log_3120993_1786791073898_0' is_open=1 fail=0 bad=0 errno=0 (Success)

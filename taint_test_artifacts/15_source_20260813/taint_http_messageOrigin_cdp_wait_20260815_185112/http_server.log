@@ -1,0 +1,5 @@
+127.0.0.1 - - [15/Aug/2026 18:51:12] "GET /health.txt HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2026 18:51:40] "GET /parent.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2026 18:51:40] "GET /child.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2026 18:51:41] code 404, message File not found
+127.0.0.1 - - [15/Aug/2026 18:51:41] "GET /favicon.ico HTTP/1.1" 404 -

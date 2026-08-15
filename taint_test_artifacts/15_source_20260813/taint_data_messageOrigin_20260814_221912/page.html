@@ -1,0 +1,6 @@
+<!doctype html><meta charset="utf-8"><script>
+try {
+  window.addEventListener("message", function(event) { document.write(event.origin); }, {once: true});
+  setTimeout(function(){ window.postMessage("message-source-value", "*"); }, 0);
+} catch (e) { document.write("ERR:" + e.name + ":" + e.message); }
+</script>

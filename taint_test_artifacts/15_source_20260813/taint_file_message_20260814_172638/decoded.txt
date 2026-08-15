@@ -1,0 +1,31 @@
+( message = (
+    jsSinkTainted = (
+      taintSource = (
+        ranges = [
+          (start = 0, end = 4294967295, type = message, encoding = none) ] ),
+      targetString = (
+        segments = [
+          ( content = "message-source-value",
+            isOneByte = true ) ] ),
+      symbolicRef = 0,
+      sinkType = html,
+      size = 0,
+      stackTrace = (
+        frames = [
+          ( frameHumanReadable = "    0: ApiCallbackExitFrame write(this=0x262b0103773d <HTMLDocument map = 0x262b0103760d>,0x262b0104f205 <String[20]: \"message-source-value\">)\n\n================details==============\n[0]: ApiCallbackExitFrame write(this=0x262b0103773d <HTMLDocument map = 0x262b0103760d>,0x262b0104f205 <String[20]: \"message-source-value\">)\n\n" ),
+          ( frameInfo = (
+              scriptName = (segments = []),
+              lineNumber = 3,
+              position = 71,
+              sourceUrl = (
+                segments = [
+                  (content = "undefined", isOneByte = true) ] ),
+              sourceId = 5,
+              astIndex = -3,
+              functionStartPosition = 0,
+              functionEndPosition = 0 ),
+            frameHumanReadable = "    1: /* anonymous */ [0x262b0104dd71] [file:///tmp/taint_file_message_20260814_172638/page.html:3] [bytecode=0x32cd010007ed offset=14](this=0x262b0102637d <JSGlobalProxy>,0x262b0104f1f5 <MessageEvent map = 0x262b010af261>)\n================details==============\n[1]: /* anonymous */ [0x262b0104dd71] [file:///tmp/taint_file_message_20260814_172638/page.html:3] [bytecode=0x32cd010007ed offset=14](this=0x262b0102637d <JSGlobalProxy>,0x262b0104f1f5 <MessageEvent map = 0x262b010af261>) {\n  // expression stack (top to bottom)\n  [08] : 2523136\n  [07] : 0x262b00000011 <undefined>\n  [06] : 0x262b010263dd <NativeContext[307]>\n  [05] : 0x262b0102af75 <JSFunction write (sfi = 0x262b01011679)>\n  [04] : 0x262b0103773d <HTMLDocument map = 0x262b0103760d>\n  [03] : 0x262b0104f205 <String[20]: \"message-source-value\">\n  [02] : 0x262b0104f205 <String[20]: \"message-source-value\">\n  [01] : 0x262b0103773d <HTMLDocument map = 0x262b0103760d>\n  [00] : 0x262b0102af75 <JSFunction write (sfi = 0x262b01011679)>\n--------- s o u r c e   c o d e ---------\nfunction (event) { document.write(event.data); }\n-----------------------------------------\n}\n\n" ),
+          ( frameHumanReadable = "    2: InternalFrame [pc: 0x72bec65d365c]\n================details==============\n[2]: InternalFrame [pc: 0x72bec65d365c]\n" ),
+          ( frameHumanReadable = "    3: EntryFrame [pc: 0x72bec65d33ab]\n================details==============\n[3]: EntryFrame [pc: 0x72bec65d33ab]\n" ) ] ) ) ),
+  isolate = 61692915286016,
+  messageId = 0 )

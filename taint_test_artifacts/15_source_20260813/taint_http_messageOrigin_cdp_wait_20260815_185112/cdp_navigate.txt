@@ -1,0 +1,23 @@
+HTTP/1.1 101 WebSocket Protocol Handshake
+Upgrade: WebSocket
+Connection: Upgrade
+Sec-WebSocket-Accept: XAWLgBRL9uxWyTPqF7/m1Yq551A=
+NAVIGATED http://127.0.0.1:37635/parent.html
+{"method": "Page.frameStartedNavigating", "params": {"frameId": "2CAACB50BC53732A5A9F0339D912698E", "url": "http://127.0.0.1:37635/parent.html", "loaderId": "74F97C1B87B912730CCDB0D163FEAC80", "navigationType": "differentDocument"}}
+{"method": "Page.frameStartedLoading", "params": {"frameId": "2CAACB50BC53732A5A9F0339D912698E"}}
+{"method": "Page.frameStartedLoading", "params": {"frameId": "2CAACB50BC53732A5A9F0339D912698E"}}
+{"id": 1, "result": {}}
+{"method": "Runtime.executionContextCreated", "params": {"context": {"id": 1, "origin": "://", "name": "", "uniqueId": "7661463314896373883.-2507833274731381776", "auxData": {"isDefault": true, "type": "default", "frameId": "2CAACB50BC53732A5A9F0339D912698E"}}}}
+{"id": 2, "result": {}}
+{"method": "Page.frameResized", "params": {}}
+{"id": 3, "result": {"frameId": "2CAACB50BC53732A5A9F0339D912698E", "loaderId": "74F97C1B87B912730CCDB0D163FEAC80", "isDownload": false}}
+{"method": "Runtime.executionContextsCleared", "params": {}}
+{"method": "Runtime.executionContextsCleared", "params": {}}
+{"method": "Page.frameNavigated", "params": {"frame": {"id": "2CAACB50BC53732A5A9F0339D912698E", "loaderId": "74F97C1B87B912730CCDB0D163FEAC80", "url": "http://127.0.0.1:37635/parent.html", "domainAndRegistry": "", "securityOrigin": "http://127.0.0.1:37635", "securityOriginDetails": {"isLocalhost": true}, "mimeType": "text/html", "adFrameStatus": {"adFrameType": "none"}, "secureContextType": "SecureLocalhost", "crossOriginIsolatedContextType": "NotIsolated", "gatedAPIFeatures": []}, "type": "Navigation"}}
+{"method": "Runtime.executionContextCreated", "params": {"context": {"id": 2, "origin": "http://127.0.0.1:37635", "name": "", "uniqueId": "5298945833107803709.-4961225805029790022", "auxData": {"isDefault": true, "type": "default", "frameId": "2CAACB50BC53732A5A9F0339D912698E"}}}}
+{"method": "Page.frameAttached", "params": {"frameId": "CB6B44B7716D371948184AFB535249B8", "parentFrameId": "2CAACB50BC53732A5A9F0339D912698E", "stack": {"callFrames": [{"functionName": "", "scriptId": "5", "url": "http://127.0.0.1:37635/parent.html", "lineNumber": 7, "columnNumber": 27}]}}}
+{"method": "Page.frameRequestedNavigation", "params": {"frameId": "CB6B44B7716D371948184AFB535249B8", "reason": "initialFrameNavigation", "url": "http://127.0.0.1:37635/child.html", "disposition": "currentTab"}}
+{"method": "Page.frameStartedNavigating", "params": {"frameId": "CB6B44B7716D371948184AFB535249B8", "url": "http://127.0.0.1:37635/child.html", "loaderId": "9D42952B37326A3FBBD1ABB7377DD7E1", "navigationType": "differentDocument"}}
+{"method": "Page.frameStartedLoading", "params": {"frameId": "CB6B44B7716D371948184AFB535249B8"}}
+{"method": "Page.domContentEventFired", "params": {"timestamp": 446432.397993}}
+SAW_CHILD_REQUEST
